@@ -2,339 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="736d8c5e-1baa-4d4a-99a2-4532c00ffc8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../git/core/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/.idea/core.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/.styleci.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Action.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Console/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Exceptions/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Controllers/ActionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Middleware/CheckForMaintenanceMode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Middleware/TrimStrings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Middleware/TrustProxies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/app/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/artisan" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/bootstrap/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/bootstrap/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/composer.phar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/broadcasting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/cache.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/database.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/filesystems.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/hashing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/logging.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/mail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/queue.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/services.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/session.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/config/view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/database/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/database/factories/UserFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/database/migrations/2019_07_06_150311_create_actions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/css/adminlte.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/css/adminlte.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/css/adminlte.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/css/bootstrap-rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/css/custom-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/css/persian-datepicker.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Black.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Black.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Black.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Bold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Light.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Light.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Light.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Medium.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Medium.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Medium.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Thin.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Thin.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir-Thin.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/Vazir.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/font-awesome/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/font-awesome/css/font-awesome.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/font-awesome/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/fonts/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/AdminLTELogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/avatar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/avatar04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/avatar2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/avatar3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/avatar5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/boxed-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/boxed-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/credit/american-express.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/credit/cirrus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/credit/mastercard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/credit/mestro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/credit/paypal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/credit/paypal2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/credit/visa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/default-150x150.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/icons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/photo1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/photo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/photo3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/photo4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/user1-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/user2-160x160.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/user3-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/user4-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/user5-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/user6-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/user7-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/img/user8-128x128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/adminlte.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/adminlte.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/adminlte.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/adminlte.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/pages/dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/pages/dashboard2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/pages/dashboard3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/persian-date.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/persian-datepicker.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/bootstrap/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chart.js2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/Chart.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/Chart.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/Chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/Chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/cartesian/category.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/cartesian/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/cartesian/linear.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/cartesian/logarithmic.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/cartesian/time.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/labelling.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/radial/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/radial/linear.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/axes/styling.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/area.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/bar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/bubble.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/doughnut.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/line.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/mixed.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/polar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/radar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/charts/scatter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/configuration/animations.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/configuration/elements.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/configuration/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/configuration/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/configuration/legend.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/configuration/title.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/configuration/tooltip.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/developers/api.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/developers/axes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/developers/charts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/developers/contributing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/developers/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/developers/plugins.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/developers/updates.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/general/colors.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/general/device-pixel-ratio.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/general/fonts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/general/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/general/interactions/events.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/general/interactions/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/general/interactions/modes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/general/options.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/general/responsive.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/getting-started/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/getting-started/installation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/getting-started/integration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/getting-started/usage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/fonts/fontawesome/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-anchorjs/anchor-style.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/Chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/chartjs-plugin-deferred.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/chartjs-plugin-deferred.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-chartjs/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-fontsettings/fontsettings.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-fontsettings/website.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-ga/plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-highlight/ebook.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-highlight/website.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-search-plus/jquery.mark.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-search-plus/search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-search-plus/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook-plugin-sharing/buttons.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/gitbook.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/images/apple-touch-icon-precomposed-152.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/gitbook/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/notes/comparison.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/notes/extensions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/notes/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/notes/license.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/search_plus_index.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/chartjs2/docs/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/font-awesome/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/font-awesome/css/font-awesome.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/font-awesome/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/jquery/core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/jquery/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/jquery/jquery.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/jquery/jquery.slim.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/jquery/jquery.slim.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/jquery/jquery.slim.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/esm/popper-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/esm/popper-utils.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/esm/popper-utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/esm/popper-utils.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/esm/popper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/esm/popper.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/esm/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/esm/popper.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/popper-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/popper-utils.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/popper-utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/popper-utils.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/popper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/popper.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/popper.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/umd/popper-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/umd/popper-utils.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/umd/popper-utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/umd/popper-utils.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/umd/popper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/umd/popper.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/umd/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/dist/js/plugins/popper/umd/popper.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/public/web.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/js/components/ExampleComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/lang/en/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/lang/en/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/lang/en/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/lang/en/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/sass/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/sass/app.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/views/auth/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/views/auth/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/views/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/resources/views/welcome.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/routes/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/routes/channels.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/routes/console.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/storage/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/storage/app/public/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/storage/framework/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/storage/framework/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/storage/framework/cache/data/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/storage/framework/sessions/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/storage/framework/testing/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/storage/framework/views/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/storage/logs/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/tests/CreatesApplication.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/tests/Feature/ExampleTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/tests/TestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/tests/Unit/ExampleTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../git/core/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ActionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -371,32 +42,32 @@
           <entry key="css" value="1" />
           <entry key="env" value="2" />
           <entry key="html" value="2" />
-          <entry key="php" value="25" />
+          <entry key="php" value="27" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="2" />
-          <entry key="Blade" value="9" />
+          <entry key="Blade" value="10" />
           <entry key="CSS" value="1" />
           <entry key="HTML" value="2" />
-          <entry key="PHP" value="16" />
+          <entry key="PHP" value="17" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="env" value="18" />
-          <entry key="php" value="408" />
+          <entry key="php" value="418" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="18" />
-          <entry key="Blade" value="282" />
-          <entry key="PHP" value="126" />
+          <entry key="Blade" value="283" />
+          <entry key="PHP" value="135" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
@@ -407,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActionController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="288">
+              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
               <folding>
                 <element signature="e#40#55#0#PHP" expanded="true" />
               </folding>
@@ -425,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2712">
-              <caret line="113" column="348" selection-start-line="113" selection-start-column="348" selection-end-line="113" selection-end-column="348" />
+            <state relative-caret-position="151">
+              <caret line="118" column="28" lean-forward="true" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -437,7 +108,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
+            <state relative-caret-position="151">
               <caret line="27" column="34" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="34" />
             </state>
           </provider>
@@ -452,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/auth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+            <state relative-caret-position="175">
+              <caret line="92" column="6" lean-forward="true" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -466,6 +137,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
               <caret line="4" column="54" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="16" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -481,7 +170,7 @@
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../git/core" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -490,16 +179,16 @@
         <option value="$PROJECT_DIR$/.styleci.yml" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/content.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Action.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_06_150311_create_actions_table.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ActionController.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/config/auth.php" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ActionController.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
       </list>
     </option>
   </component>
@@ -616,7 +305,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -627,30 +315,34 @@
             <path>
               <item name="core" type="b2602c69:ProjectViewProjectNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="core" type="b2602c69:ProjectViewProjectNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="core" type="b2602c69:ProjectViewProjectNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="core" type="b2602c69:ProjectViewProjectNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -778,12 +470,12 @@
       <option name="presentableId" value="Default" />
       <updated>1562341493350</updated>
       <workItem from="1562341570207" duration="11416000" />
-      <workItem from="1562432241578" duration="79000" />
+      <workItem from="1562432241578" duration="2436000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11495000" />
+    <option name="totallyTimeSpent" value="13852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -793,6 +485,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -801,7 +494,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" type="SLIDING" weight="0.49099836" />
@@ -819,7 +512,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
-      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/../git/core" />
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
@@ -870,13 +563,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/content.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -901,37 +587,6 @@
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Authenticatable.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2712">
-          <caret line="113" column="348" selection-start-line="113" selection-start-column="348" selection-end-line="113" selection-end-column="348" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1272">
@@ -948,8 +603,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/auth.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="92" column="6" lean-forward="true" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
-          <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="118" column="28" lean-forward="true" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="28" />
         </state>
       </provider>
     </entry>
