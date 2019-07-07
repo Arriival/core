@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BasePerson;
 use Illuminate\Http\Request;
 
 class BasePersonController extends Controller
@@ -13,7 +14,10 @@ class BasePersonController extends Controller
      */
     public function index()
     {
-        return view_master('layouts.personnel.Index');
+
+        $personnel = BasePerson::all();
+        $data = ['personnel'=>$personnel];
+        return view_master('layouts.personnel.Grid', $data);
     }
 
     /**

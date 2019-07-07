@@ -36,8 +36,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- template rtl version -->
     <link rel="stylesheet" href="dist/css/custom-style.css">
 
+
+
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" >
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -69,8 +71,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="fa fa-bars"></i>
+                    {{Auth::user()->username}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
+                    {{--<span class="dropdown-item dropdown-header"></span>--}}
+                    <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item">
                         <i class="fa fa-key ml-2"></i> تغییر رمز عبور
                     </a>
@@ -126,7 +131,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-color: rgba(169,169,169,0.19)">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
