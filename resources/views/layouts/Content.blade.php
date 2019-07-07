@@ -1,9 +1,4 @@
-{{--@extends('layouts.master')--}}
-
-
-{{--@section('content')--}}
 <section class="content">
-    <!-- Default box -->
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">خانه</h3>
@@ -16,23 +11,11 @@
             </div>
         </div>
         <div class="card-body">
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            @yield('cardBody')
+            @yield('bodyContent')
         </div>
-        <!-- /.card-body -->
-{{-- <div class="card-footer">
+        {{-- <div class="card-footer">
              @yield('cardFooter')
-         </div>--}}{{--
+         </div>--}}
+    </div>
 
-        <!-- /.card-footer-->
-        </div>
-        <!-- /.card -->
-
-    </section>
-@endsection
---}}
+</section>
