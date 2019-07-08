@@ -14,6 +14,10 @@ class BasePerson extends Model
     {
         return $this->hasOne('App\User');
     }
+    public function getFullNameAttribute()
+    {
+        return "{$this->firstName} {$this->lastName}";
+    }
 
 
 }

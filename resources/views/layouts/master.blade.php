@@ -18,23 +18,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{--<link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
+    {{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="dist/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/dist/fonts/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/dist/css/adminlte.css">
     <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {{--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">--}}
 
     <!-- bootstrap rtl -->
-    <link rel="stylesheet" href="dist/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">
     <!-- template rtl version -->
-    <link rel="stylesheet" href="dist/css/custom-style.css">
+    <link rel="stylesheet" href="/dist/css/custom-style.css">
 
 
 
@@ -111,11 +111,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="https://png2.kisspng.com/sh/a4e09bfe9085738162f4fde81677bdec/L0KzQYm3WcIxN6pngJH0aYP2gLBuTfNwdaF6jNd7LXnmf7B6TgBweqVmet5uLX7ohMj2kvsub6NmiNpyY4OwccfolPFzNZpoRadrYUPmRofsU8A3amI6RqICNUa1R4KAUcU0P2U6Uao7MkG8SIS1kP5o/kisspng-computer-icons-portable-network-graphics-avatar-ic-5ba3c66e306b15.0756271715374598221983.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="../../dist/img/user8-128x128.jpg" class="img-circle elevation-2" >
                     </div>
                     <div class="info">
                         <a href="" class="d-block">
-                            {{ Auth::user()->person->firstName ." ". Auth::user()->person->lastName}}
+                            {{ Auth::user()->person->fullName}}
                         </a>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="background-color: rgba(169,169,169,0.19)">
+    <div class="content-wrapper" style="background-color: rgba(169,169,169,0.19); min-height: calc(100vh - 57px)">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">

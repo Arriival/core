@@ -27,7 +27,7 @@ class BasePersonController extends Controller
      */
     public function create()
     {
-        //
+        return view_master('layouts.personnel.New');
     }
 
     /**
@@ -84,5 +84,15 @@ class BasePersonController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }
