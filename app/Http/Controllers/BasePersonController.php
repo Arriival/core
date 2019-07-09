@@ -15,7 +15,7 @@ class BasePersonController extends Controller
     public function index()
     {
 
-        $personnel = BasePerson::all();
+        $personnel = BasePerson::paginate(12);
         $data = ['personnel'=>$personnel];
         return view_master('layouts.personnel.Grid', $data);
     }
@@ -38,7 +38,8 @@ class BasePersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $person = BasePerson::create($request->all());
+        return $this->index();
     }
 
     /**
@@ -83,7 +84,10 @@ class BasePersonController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $person = BasePerson::find($id);
+       $person->delete();
+       return redirect('personnel');
+
     }
 
     /**

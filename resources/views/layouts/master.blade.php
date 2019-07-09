@@ -17,11 +17,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
-    <!-- Fonts -->
-    {{--<link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
-    {{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
+    <!-- REQUIRED SCRIPTS -->
 
-    <!-- Styles -->
+    <!-- jQuery -->
+    <script src="/dist/js/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/dist/js/adminlte.min.js"></script>
+
+
+    <!-- Fonts -->
+{{--<link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
+{{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
+
+<!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Font Awesome Icons -->
@@ -29,17 +39,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.css">
     <!-- Google Font: Source Sans Pro -->
-    {{--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">--}}
+{{--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">--}}
 
-    <!-- bootstrap rtl -->
+<!-- bootstrap rtl -->
     <link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dist/css/custom-style.css">
 
 
+    <link href="/dist/css/skins/square/_all.css" rel="stylesheet">
+    <script src="/dist/js/icheck.js"></script>
+
 
 </head>
-<body class="hold-transition sidebar-mini" >
+<body class="hold-transition sidebar-mini">
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -111,7 +124,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../../dist/img/user8-128x128.jpg" class="img-circle elevation-2" >
+                        <img src="../../dist/img/user8-128x128.jpg" class="img-circle elevation-2">
                     </div>
                     <div class="info">
                         <a href="" class="d-block">
@@ -168,13 +181,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
 
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
 </body>
 </html>
+
+
+<script>
+    $(document).ready(function(){
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>

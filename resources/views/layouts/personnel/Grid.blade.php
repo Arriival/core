@@ -1,8 +1,6 @@
-<!-- Default box -->
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">پرسنل</h3>
-
         <div class="card-tools">
             <a class="btn btn-app" href="{{route('personnel.create')}}">
                 <i class="fa fa-plus text-success"></i>ثبت
@@ -12,8 +10,7 @@
     <div class="card-body">
         <div class="row mt-3">
             @foreach ($personnel as $person)
-                <div class="col-sm-3 col-xl-4">
-                    <!-- Profile Image -->
+                <div class="col-sm-3 col-xl-3">
                     <div class="card  card-primary card-outline">
                         <div class="card-body box-profile">
                             <div class="text-center">
@@ -30,24 +27,34 @@
                                     {{$person->email}}
                                 </li>
                             </ul>
-
-                            <a href="#" class="btn btn-primary btn-block"><b>جزئیات</b></a>
+                                <div class="btn-group btn-block text-center">
+                                    <a href="#" class="btn btn-primary btn-block"><b>جزئیات</b></a>
+                                    <a href="#" class="btn btn-danger " onclick="deleteUser('{{url('/personnel', [$person->id])}}')"><b>حذف</b></a>
+                                </div>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
-
-                    <!-- About Me Box -->
-                    <!-- /.card -->
                 </div>
             @endforeach
-        </div>
 
-
+        </div> {{$personnel->links()}}
     </div>
-    <!-- /.card-body -->
-{{-- <div class="card-footer">
- </div>--}}
-<!-- /.card-footer-->
 </div>
-<!-- /.card -->
+
+
+<script type="text/javascript">
+
+    function deleteUser(url){
+       console.log(url);
+       /* $.ajax({
+            url:  ,
+            type: 'DELETE',
+            contentType: 'application/json; charset=utf-8',
+            success: function (res) {
+
+            }
+        });*/
+    }
+
+
+
+</script>

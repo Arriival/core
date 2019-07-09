@@ -8,7 +8,7 @@ class BasePerson extends Model
 {
 
 //    private $isActive;
-    protected $fillable = ['firstName', 'lastName', 'code', 'gender', 'image', 'email', 'phoneNumber'];
+    protected $fillable = ['firstName', 'lastName', 'code', 'gender', 'image', 'email', 'phoneNumber', 'isActive'];
 
     public function user()
     {
