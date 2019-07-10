@@ -80,18 +80,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="navbar-nav mr-auto">
             <!-- Notifications Dropdown Menu -->
             <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bars"></i>
-                    {{Auth::user()->username}}
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="nav-link">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <i class="fa fa-sign-out"></i>
+                    خروج
+
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
-                    {{--<span class="dropdown-item dropdown-header"></span>--}}
+                {{--<div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
+                    --}}{{--<span class="dropdown-item dropdown-header"></span>--}}{{--
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item">
                         <i class="fa fa-key ml-2"></i> تغییر رمز عبور
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href=href="{{ route('logout') }}"
+                    <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" class="dropdown-item">
                         <i class="fa fa-sign-out ml-2"></i>خروج
@@ -99,7 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                </div>
+                </div>--}}
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i

@@ -19,7 +19,7 @@ class ActionController extends Controller
      */
     public function index()
     {
-        return view_master('home');
+        return view('home');
     }
 
     /**
