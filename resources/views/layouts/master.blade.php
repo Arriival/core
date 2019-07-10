@@ -27,11 +27,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/dist/js/adminlte.min.js"></script>
 
 
-    <!-- Fonts -->
-{{--<link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
-{{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
+    <script src="/dist/js/headContnet.js"></script>
 
-<!-- Styles -->
+
+    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Font Awesome Icons -->
@@ -39,9 +38,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.css">
     <!-- Google Font: Source Sans Pro -->
-{{--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">--}}
 
-<!-- bootstrap rtl -->
+    <!-- bootstrap rtl -->
     <link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dist/css/custom-style.css">
@@ -161,7 +159,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content">
             <div class="container-fluid">
                 <section class="content">
-                    @include($view)
+                    {{--@include($view)--}}
+                    @yield('content')
                 </section>
             </div><!-- /.container-fluid -->
         </div>
@@ -187,7 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-green',
             radioClass: 'iradio_square-blue',

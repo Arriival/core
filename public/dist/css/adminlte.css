@@ -13770,3 +13770,11 @@ a.text-muted:hover {
  * Behzad
  * -----------
  */
+
+input[required], input[required="required"] {
+    border-color: rgba(255, 0, 0, 0.4);
+}
+
+.grid-shadow:hover{
+    box-shadow: 0px 5px 8px 3px rgba(36, 71, 115, 0.55);
+}

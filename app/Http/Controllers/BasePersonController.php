@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BasePerson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class BasePersonController extends Controller
 {
@@ -14,10 +15,10 @@ class BasePersonController extends Controller
      */
     public function index()
     {
-
         $personnel = BasePerson::paginate(12);
-        $data = ['personnel'=>$personnel];
-        return view_master('layouts.personnel.Grid', $data);
+        $data = ['personnel' => $personnel];
+//        return view_master('layouts.personnel.Grid', $data);
+        return view('layouts.personnel.Grid', $data);
     }
 
     /**
@@ -27,67 +28,75 @@ class BasePersonController extends Controller
      */
     public function create()
     {
-        return view_master('layouts.personnel.New');
+        $data['person'] = new BasePerson();
+//        return view_master('layouts.personnel.New', $data);
+        return view('layouts.personnel.New', $data);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $person = BasePerson::create($request->all());
+        BasePerson::create($request->all());
         return $this->index();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $person = BasePerson::find($id);
+        $data['person'] = $person;
+//        return view_master('layouts.personnel.New', $data);
+        return view('layouts.personnel.New', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        BasePerson::find($id)->update(Input::all());
+        return redirect(url('personnel'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-       $person = BasePerson::find($id);
-       $person->delete();
-       return redirect('personnel');
+        $person = BasePerson::find($id)->delete();
+        if ($person) {
+            return response(['success' => 'true'], 200);
+        } else {
+            return response(['success' => 'Not deleted'], 404);
 
+        }
     }
 
     /**
