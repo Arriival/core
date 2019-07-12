@@ -27,6 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(200);
-        View::share('actions', Action::orderBy('code','ASC')->get());
+        View::share('actions', Action::orderBy('order','ASC')->get());
     }
 }

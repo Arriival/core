@@ -38,9 +38,17 @@ class BasePersonController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
+        /*$this->validate($request, [
+            'firstName' => 'required|max:1',
+            'lastName' => 'required|max:1',
+        ]);*/
+        dd($request->file('image'));
+        $this->validator($request);
+
         BasePerson::create($request->all());
         return $this->index();
     }
@@ -49,7 +57,7 @@ class BasePersonController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function show($id)
     {
@@ -78,7 +86,9 @@ class BasePersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        BasePerson::find($id)->update(Input::all());
+
+        $this->validator($request);
+        BasePerson::find($id)->update($request->request->all());
         return redirect(url('personnel'));
     }
 
@@ -106,6 +116,32 @@ class BasePersonController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+    }
+
+    public function validator(Request $request)
+    {
+        $rules = [
+            'firstName' => 'required|alpha',
+            'lastName' => 'required|alpha',
+            'code' => 'required|max:10|alpha_num',
+            'gender' => 'required|boolean',
+            'isActive' => 'required|boolean',
+            'email' => 'nullable|email',
+            'phoneNumber' => 'nullable|numeric',
+        ];
+
+        $customMessages = [
+            'required' => 'الزامی',
+            'max' => 'نامعتبر',
+            'alpha' => 'نامعتبر',
+            'alpha_num' => 'نامعتبر',
+            'email' => 'نامعتبر',
+            'numeric' => 'نامعتبر',
+            'boolean' => 'انتخاب نشده',
+        ];
+
+        return $this->validate($request, $rules, $customMessages);
+
     }
 }

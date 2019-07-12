@@ -52,6 +52,34 @@
                 success: function () {
                 }
             });
+            /*$.confirm({
+                title: 'تایید حذف',
+                content: 'آیا از حذف اطلاعات اطمینان دارید؟',
+                type: 'orange',
+                typeAnimated: true,
+                buttons: {
+                    confirm: {
+                        text: 'تایید',
+                        btnClass: 'btn-red',
+                        action: function () {
+                            $.ajax({
+                                url: url,
+                                type: 'DELETE',
+                                contentType: 'application/json; charset=utf-8',
+                                success: function () {
+                                }
+                            });
+                        }
+                    },
+                    cancel: {
+                        text: 'انصراف',
+                        action: function () {
+                        }
+                    }
+                }
+            });*/
+
+
         }
 
 

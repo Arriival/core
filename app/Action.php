@@ -10,4 +10,9 @@ class Action extends Model
     private $icon;
     private $code;
     private $route;
+
+    public function actions()
+    {
+        return $this->hasMany('App/Action');
+    }
 }

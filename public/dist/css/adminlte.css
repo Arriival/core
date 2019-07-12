@@ -12145,7 +12145,7 @@ label:not(.form-check-label):not(.custom-file-label) {
     border-radius: 0.25rem;
     background-color: #ffffff;
     padding: .5rem 1rem .5rem .5rem;
-    border-left: 5px solid #eee;
+    border-right: 5px solid #eee;
 }
 
 .callout a {
@@ -12162,7 +12162,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 
 .callout.callout-danger {
-    border-left-color: #bd2130;
+    border-right-color: #bd2130;
 }
 
 .callout.callout-warning {
@@ -13762,19 +13762,32 @@ a.text-muted:hover {
 
 /*# sourceMappingURL=adminlte.css.map */
 
-
-
-
 /*
  * My CSS
  * Behzad
  * -----------
  */
 
-input[required], input[required="required"] {
-    border-color: rgba(255, 0, 0, 0.4);
+
+.grid-shadow:hover {
+    box-shadow: 0px 5px 8px 3px rgba(36, 71, 115, 0.55);
 }
 
-.grid-shadow:hover{
-    box-shadow: 0px 5px 8px 3px rgba(36, 71, 115, 0.55);
+.error-bag {
+    margin-right: 25px;
+    color: #8e1406;
+}
+
+.validation-error {
+    color: red;
+    font-size: smaller;
+    font-family: Tahoma;
+}
+
+input.required{
+    border-right: solid 3px red;
+}
+
+input.invalid{
+    border-right: solid 3px red;
 }

@@ -48,6 +48,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="/dist/css/skins/square/_all.css" rel="stylesheet">
     <script src="/dist/js/icheck.js"></script>
 
+    <link href="/dist/css/jquery-confirm.min.css" rel="stylesheet">
+    <script src="/dist/js/jquery-confirm.min.js"></script>
+
 
 </head>
 <body class="hold-transition sidebar-mini">
