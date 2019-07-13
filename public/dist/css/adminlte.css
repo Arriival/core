@@ -13768,7 +13768,6 @@ a.text-muted:hover {
  * -----------
  */
 
-
 .grid-shadow:hover {
     box-shadow: 0px 5px 8px 3px rgba(36, 71, 115, 0.55);
 }
@@ -13784,10 +13783,18 @@ a.text-muted:hover {
     font-family: Tahoma;
 }
 
-input.required{
+input.required {
     border-right: solid 3px red;
 }
 
-input.invalid{
+input.invalid {
     border-right: solid 3px red;
+}
+
+.searchBox {
+    margin-top: 5px;
+    padding-top: 15px;
+    border: 2px solid #2aa198;
+    border-radius: 5px;
+    box-shadow: 0px 5px 8px 3px rgba(42, 161, 152, 0.55);
 }

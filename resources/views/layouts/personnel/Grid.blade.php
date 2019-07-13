@@ -4,12 +4,37 @@
         <div class="card-header">
             <h3 class="card-title">پرسنل</h3>
             <div class="card-tools">
+                <a class="btn btn-app" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <i class="fa fa-search text-info"></i>جستجو
+                </a>
                 <a class="btn btn-app" href="{{route('personnel.create')}}">
                     <i class="fa fa-plus text-success"></i>ثبت
                 </a>
             </div>
         </div>
         <div class="card-body">
+            <form action="{{url('personnel')}}" method="GET">
+                <div class="row searchBox collapse" id="collapseExample">
+                    <div class="form-group form-group-sm col-sm-3">
+                        <input id="firstName" name="firstName" type="text" class="form-control" placeholder="نام" value="{{ $request->firstName}}">
+                    </div>
+                    <div class="form-group form-group-sm col-sm-3">
+                        <input id="firstName" name="lastName" type="text" class="form-control" placeholder="نام خانوادگی" value="">
+                    </div>
+                    <div class="form-group form-group-sm col-sm-3">
+                        <input id="firstName" name="code" type="text" class="form-control" placeholder="کد ملی" value="">
+                    </div>
+                    <div class="form-group form-group-sm col-sm-3">
+                        <input id="firstName" name="fatherName" type="text" class="form-control" placeholder="نام پدر" value="">
+                    </div>
+                    <div class="form-group form-group-sm col-sm-3"></div>
+                    <div class="form-group form-group-sm col-sm-3"></div>
+                    <div class="form-group form-group-sm col-sm-3"></div>
+                    <div class="form-group form-group-sm col-sm-3">
+                        <input type="submit" class="btn btn-block btn-outline-primary " value="جستجو">
+                    </div>
+                </div>
+            </form>
             <div class="row mt-3">
                 @foreach ($personnel as $person)
                     <div class="col-sm-3 col-xl-3 ">

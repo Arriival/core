@@ -20,10 +20,3 @@ Route::resource('home', 'ActionController');
 Route::resource('personnel', 'BasePersonController');
 
 
-Route::get('form', function(){
-    return View::make('layouts.FileUpload');
-});
-
-Route::any('form-submit', function(){
-    var_dump(Input::file('file'));
-});

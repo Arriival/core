@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\BasePerson;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 
 class BasePersonController extends Controller
 {
@@ -13,11 +12,26 @@ class BasePersonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $personnel = BasePerson::paginate(12);
-        $data = ['personnel' => $personnel];
-//        return view_master('layouts.personnel.Grid', $data);
+
+
+        $person = BasePerson::where('id', '>', 0);
+        if ($request->has('firstName') && $request->firstName != null) {
+            $person = BasePerson::where('firstName', $request->firstName);
+        }
+        if ($request->has('lastName') && $request->lastName != null) {
+            $person = BasePerson::where('lastName', $request->lastName);
+        }
+        if ($request->has('code') && $request->code != null) {
+            $person = BasePerson::where('code', $request->code);
+        }
+        /*if ($request->has('fatherName') && $request->fatherName != null) {
+            $person = BasePerson::where('fatherName', $request->fatherName);
+        }*/
+
+        $person = $person->paginate(12);
+        $data = ['personnel' => $person, 'request' => $request];
         return view('layouts.personnel.Grid', $data);
     }
 
