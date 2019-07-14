@@ -4,44 +4,21 @@
         <div class="card-header">
             <h3 class="card-title">پرسنل</h3>
             <div class="card-tools">
-                <a class="btn btn-app" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <button type="button" class="btn btn-app" data-toggle="modal" data-target="#searchModal">
                     <i class="fa fa-search text-info"></i>جستجو
-                </a>
+                </button>
                 <a class="btn btn-app" href="{{route('personnel.create')}}">
                     <i class="fa fa-plus text-success"></i>ثبت
                 </a>
             </div>
         </div>
         <div class="card-body">
-            <form action="{{url('personnel')}}" method="GET">
-                <div class="row searchBox collapse" id="collapseExample">
-                    <div class="form-group form-group-sm col-sm-3">
-                        <input id="firstName" name="firstName" type="text" class="form-control" placeholder="نام" value="{{ $request->firstName}}">
-                    </div>
-                    <div class="form-group form-group-sm col-sm-3">
-                        <input id="firstName" name="lastName" type="text" class="form-control" placeholder="نام خانوادگی" value="">
-                    </div>
-                    <div class="form-group form-group-sm col-sm-3">
-                        <input id="firstName" name="code" type="text" class="form-control" placeholder="کد ملی" value="">
-                    </div>
-                    <div class="form-group form-group-sm col-sm-3">
-                        <input id="firstName" name="fatherName" type="text" class="form-control" placeholder="نام پدر" value="">
-                    </div>
-                    <div class="form-group form-group-sm col-sm-3"></div>
-                    <div class="form-group form-group-sm col-sm-3"></div>
-                    <div class="form-group form-group-sm col-sm-3"></div>
-                    <div class="form-group form-group-sm col-sm-3">
-                        <input type="submit" class="btn btn-block btn-outline-primary " value="جستجو">
-                    </div>
-                </div>
-            </form>
             <div class="row mt-3">
                 @foreach ($personnel as $person)
                     <div class="col-sm-3 col-xl-3 ">
                         <div class="card  card-primary card-outline grid-shadow">
                             <div class="card-body box-profile">
                                 <div class="text-center">
-                                    {{----}}
                                     <img class="img-fluid profile-user-img @if($person->isActive) active @else deActive @endif img-circle" src="../../dist/img/user8-128x128.jpg">
                                 </div>
                                 <h3 class="profile-username text-center">{{$person->firstName . " " . $person->lastName}}</h3>
@@ -109,5 +86,63 @@
 
 
     </script>
+
+@endsection
+@section('searchBox')
+    <section>
+        <!-- Modal: modalPoll -->
+        <div class="modal fade left" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true" data-backdrop="true" style="z-index: 99999 ">
+            <form action="{{url('personnel')}}" method="GET">
+                <div class="modal-dialog modal-fluid modal-full-height modal-left modal-notify modal-info" role="document">
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="white-text"><i class="fa fa-times text-white"></i></span>
+                            </button>
+                            <p class="heading lead">جستجو</p>
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="md-form input-group input-group-sm mb-3 col-sm-6">
+                                    {{-- <div class="input-group-prepend">
+                                         <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-sm">نام</span>
+                                     </div>--}}
+                                    <input id="firstName" name="firstName" type="text" class="form-control" placeholder="نام" value="{{ $request->firstName}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                                <div class="md-form input-group input-group-sm mb-3 col-sm-6">
+                                    <input id="lastName" name="lastName" type="text" class="form-control" placeholder="نام خانوادگی" value="{{ $request->lastName}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                                <div class="md-form input-group input-group-sm mb-3  col-sm-6">
+                                    <input type="text" class="form-control" placeholder="نام پدر" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                                <div class="md-form input-group input-group-sm mb-3  col-sm-6">
+                                    <input id="code" name="code" type="text" class="form-control" placeholder="کد ملی" value="{{ $request->code}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer justify-content-center">
+                            {{-- <a type="submit" class="btn btn-primary waves-effect waves-light">اعمال فیلتر
+                                 <i class="fa fa-filter ml-1"></i>
+                             </a>--}}
+                            <input type="submit" class="btn btn-primary waves-effect waves-light" value="اعمال فیلتر">
+                            <a type="button" class="btn btn-outline-primary waves-effect">پاک کردن</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Modal: modalPoll -->
+    </section>
+    <!-- Modal: modalPoll -->
+@endsection
+
+@section('javaScript')
 
 @endsection

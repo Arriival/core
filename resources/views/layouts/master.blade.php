@@ -21,12 +21,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- jQuery -->
     <script src="/dist/js/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/dist/js/mdb.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.min.js"></script>
-
-
     <script src="/dist/js/headContnet.js"></script>
 
 
@@ -37,13 +39,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="/dist/fonts/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.css">
-    <!-- Google Font: Source Sans Pro -->
+
 
     <!-- bootstrap rtl -->
     <link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">
+
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dist/css/custom-style.css">
 
+    <!-- Material Design Bootstrap -->
+    <link href="/dist/css/mdb.css" rel="stylesheet">
 
     <link href="/dist/css/skins/square/_all.css" rel="stylesheet">
     <script src="/dist/js/icheck.js"></script>
@@ -68,18 +73,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </ul>
 
         <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="جستجو" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
+    {{--<form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="جستجو" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
-        </form>
+        </div>
+    </form>--}}
 
-        <!-- Right navbar links -->
+    <!-- Right navbar links -->
         <ul class="navbar-nav mr-auto">
             <!-- Notifications Dropdown Menu -->
             <li class="nav-item dropdown">
@@ -89,9 +94,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                    <i class="fa fa-sign-out"></i>
-                    خروج
-
+                    <span>
+                        <i class="fa fa-sign-out "></i>
+                         خروج
+                    </span>
                 </a>
                 {{--<div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
                     --}}{{--<span class="dropdown-item dropdown-header"></span>--}}{{--
@@ -171,6 +177,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     {{--@include($view)--}}
                     @yield('content')
                 </section>
+                <section>
+                    @yield('searchBox')
+                </section>
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
@@ -191,10 +200,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 </body>
+
 </html>
 
 
 <script>
+
+    @yield('javaScript')
+
     $(document).ready(function () {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-green',

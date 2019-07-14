@@ -60,7 +60,6 @@ class BasePersonController extends Controller
             'firstName' => 'required|max:1',
             'lastName' => 'required|max:1',
         ]);*/
-        dd($request->file('image'));
         $this->validator($request);
 
         BasePerson::create($request->all());
