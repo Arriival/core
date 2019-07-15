@@ -6,6 +6,11 @@
             <h3 class="card-title">پرسنل</h3>
 
             <div class="card-tools">
+                @if($person->id)
+                <a class="btn btn-app" href="">
+                    <i class="fa fa-user-plus text-warning"></i>ثبت کاربر
+                </a>
+                @endif
                 <a class="btn btn-app" href="{{route('personnel.create')}}">
                     <i class="fa fa-plus text-success"></i>جدید
                 </a>
