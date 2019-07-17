@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Action;
+use App\Http\Controllers\ActionController;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,9 +24,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function boot()
     {
-        Schema::defaultStringLength(200);
-        View::share('actions', Action::orderBy('order','ASC')->get());
+        Schema::defaultStringLength(191);
+        View::share('actions', ActionController::loadActions());
     }
 }

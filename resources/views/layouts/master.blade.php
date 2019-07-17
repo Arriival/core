@@ -16,7 +16,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
@@ -24,41 +23,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="js/popper.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="/dist/js/mdb.min.js"></script>
-    <!-- AdminLTE App -->
+{{--<script src="/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>--}}
+<!-- AdminLTE App -->
     <script src="/dist/js/adminlte.min.js"></script>
     <script src="/dist/js/headContnet.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/dist/js/mdb.min.js"></script>
+    <script src="/dist/js/icheck.js"></script>
+    <script src="/dist/js/jquery-confirm.min.js"></script>
 
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/dist/fonts/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.css">
-
-
     <!-- bootstrap rtl -->
     <link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">
-
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dist/css/custom-style.css">
-
     <!-- Material Design Bootstrap -->
     <link href="/dist/css/mdb.css" rel="stylesheet">
-
     <link href="/dist/css/skins/square/_all.css" rel="stylesheet">
-    <script src="/dist/js/icheck.js"></script>
-
     <link href="/dist/css/jquery-confirm.min.css" rel="stylesheet">
-    <script src="/dist/js/jquery-confirm.min.js"></script>
 
 
 </head>
 <body class="hold-transition sidebar-mini">
+
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -180,6 +173,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <section>
                     @yield('searchBox')
                 </section>
+                <section>
+                    @yield('editBox')
+                </section>
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
@@ -208,11 +204,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     @yield('javaScript')
 
-    $(document).ready(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-green',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' // optional
-        });
-    });
+
 </script>

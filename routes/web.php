@@ -18,5 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::resource('home', 'ActionController');
 Route::resource('personnel', 'BasePersonController');
+Route::resource('user', 'UserController');
+Route::resource('role', 'RoleController');
+Route::resource('role.search', 'RoleController@search');
 
 

@@ -4,26 +4,33 @@ namespace App\Http\Controllers;
 
 use App\BasePerson;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class BasePersonController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
+  /*      $role = Role::create(['name' => 'writer']);
+        $user=Auth::user();
+        $user->assignRole('writer');*/
 
+        $person = BasePerson::query();
 
-        $person = BasePerson::where('id', '>', 0);
-        if ($request->has('firstName') && $request->firstName != null) {
+        if ($request->has('firstName') && !is_null($request->firstName)) {
             $person = BasePerson::where('firstName', $request->firstName);
         }
-        if ($request->has('lastName') && $request->lastName != null) {
+        if ($request->has('lastName') && !is_null($request->lastName)) {
             $person = BasePerson::where('lastName', $request->lastName);
         }
-        if ($request->has('code') && $request->code != null) {
+        if ($request->has('code') &&!is_null($request->code)) {
             $person = BasePerson::where('code', $request->code);
         }
         /*if ($request->has('fatherName') && $request->fatherName != null) {
@@ -43,7 +50,6 @@ class BasePersonController extends Controller
     public function create()
     {
         $data['person'] = new BasePerson();
-//        return view_master('layouts.personnel.New', $data);
         return view('layouts.personnel.New', $data);
     }
 
