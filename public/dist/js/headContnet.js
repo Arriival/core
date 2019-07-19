@@ -11,14 +11,3 @@ $(document).ready(function () {
         increaseArea: '20%' // optional
     });
 });
-
-function deleteEntity(url) {
-    $.ajax({
-        url: url,
-        type: 'DELETE',
-        contentType: 'application/json; charset=utf-8',
-        success: function (res) {
-            console.log(res);
-        }
-    });
-}

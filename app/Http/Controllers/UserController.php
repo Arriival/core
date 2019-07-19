@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\BasePerson;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -25,9 +27,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $personId = $request->get('person');
+        $data['user'] = new User();
+        $data['person'] = BasePerson::find($personId);
+        return view('user.Edit', $data);
+    }
+
+    public function showPersonList(Request $request)
+    {
+        return redirect(route('personnel.list', $request->query->all()));
     }
 
     /**
@@ -83,6 +93,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Auth::id() != $id) {
+            User::find($id)->delete();
+        }
+
+        return redirect(url('user'));
     }
 }

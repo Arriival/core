@@ -7,7 +7,7 @@
                 <button type="button" class="btn btn-app" data-toggle="modal" data-target="#searchModal">
                     <i class="fa fa-search text-info"></i>جستجو
                 </button>
-                <a class="btn btn-app" href="{{route('personnel.create')}}">
+                <a class="btn btn-app" href="{{route('user.personnel', ['base'=>'user', 'func'=>'create'])}}">
                     <i class="fa fa-plus text-success"></i>ثبت
                 </a>
             </div>
@@ -54,10 +54,14 @@
                                    aria-expanded="false">عملیات</a>
 
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"><i class=" text-info"></i>تغییر نام کاربری</a>
+                                    <a class="dropdown-item" href="#"><i class=" text-info"></i>تغییر رمز عبور</a>
                                     <a class="dropdown-item" href="#"><i class="  text-info"></i>فعال / غیرفعال</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><i class="  text-danger"></i>حذف</a>
+                                    <form method="POST" action="{{route('user.destroy', $user->id)}}">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <input type="submit" class="dropdown-item deleteEntity" onsubmit="return confirmDelete()" value="حذف">
+                                    </form>
                                 </div>
                                 <!-- Basic dropdown -->
                             </td>

@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\BasePerson;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
 
 class BasePersonController extends Controller
 {
@@ -18,9 +15,9 @@ class BasePersonController extends Controller
      */
     public function index(Request $request)
     {
-  /*      $role = Role::create(['name' => 'writer']);
-        $user=Auth::user();
-        $user->assignRole('writer');*/
+        /*      $role = Role::create(['name' => 'writer']);
+              $user=Auth::user();
+              $user->assignRole('writer');*/
 
         $person = BasePerson::query();
 
@@ -30,16 +27,32 @@ class BasePersonController extends Controller
         if ($request->has('lastName') && !is_null($request->lastName)) {
             $person = BasePerson::where('lastName', $request->lastName);
         }
-        if ($request->has('code') &&!is_null($request->code)) {
+        if ($request->has('code') && !is_null($request->code)) {
             $person = BasePerson::where('code', $request->code);
         }
-        /*if ($request->has('fatherName') && $request->fatherName != null) {
-            $person = BasePerson::where('fatherName', $request->fatherName);
-        }*/
 
         $person = $person->paginate(12);
         $data = ['personnel' => $person, 'request' => $request];
         return view('layouts.personnel.Grid', $data);
+    }
+
+    public function list(Request $request)
+    {
+        $person = BasePerson::query();
+
+        if ($request->has('firstName') && !is_null($request->firstName)) {
+            $person = BasePerson::where('firstName', $request->firstName);
+        }
+        if ($request->has('lastName') && !is_null($request->lastName)) {
+            $person = BasePerson::where('lastName', $request->lastName);
+        }
+        if ($request->has('code') && !is_null($request->code)) {
+            $person = BasePerson::where('code', $request->code);
+        }
+
+        $person = $person->paginate(12);
+        $data = ['personnel' => $person, 'request' => $request];
+        return view('layouts.personnel.PersonnelList', $data);
     }
 
     /**
@@ -135,7 +148,7 @@ class BasePersonController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function validator(Request $request)
@@ -163,4 +176,5 @@ class BasePersonController extends Controller
         return $this->validate($request, $rules, $customMessages);
 
     }
+
 }

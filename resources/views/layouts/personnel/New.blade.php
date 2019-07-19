@@ -7,7 +7,7 @@
 
             <div class="card-tools">
                 @if($person->id)
-                <a class="btn btn-app" href="{{url('user')}}">
+                <a class="btn btn-app" href="{{route('user.create', ['person'=>$person->id])}}">
                     <i class="fa fa-user-plus text-warning"></i>ثبت کاربر
                 </a>
                 @endif

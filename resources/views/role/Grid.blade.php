@@ -39,8 +39,12 @@
                                    aria-expanded="false">عملیات</a>
 
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"><i class="  text-danger"></i>ویرایش</a>
-                                    <a class="dropdown-item" onclick="deleteEntity('{{url('/role', [$role->id])}}')"><i class="  text-danger"></i>حذف</a>
+                                    <a class="dropdown-item" href=""><i class="  text-danger"></i>ویرایش</a>
+                                    <form method="POST" action="{{route('role.destroy', $role->id)}}">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <input type="submit" class="dropdown-item deleteEntity" onsubmit="return confirmDelete()" value="حذف">
+                                    </form>
                                 </div>
                                 <!-- Basic dropdown -->
                             </td>

@@ -15,10 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+//home
 Route::resource('home', 'ActionController');
+
+//personnel
+Route::prefix('personnel')->group(function () {
+    Route::get('select', 'BasePersonController@list')->name('personnel.list');
+});
 Route::resource('personnel', 'BasePersonController');
+
+Auth::routes();
+
+//user
+Route::prefix('user')->group(function () {
+    Route::get('personnel', 'UserController@showPersonList')->name('user.personnel');
+});
 Route::resource('user', 'UserController');
+
+//role
 Route::resource('role', 'RoleController');
 Route::resource('role.search', 'RoleController@search');
 

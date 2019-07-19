@@ -201,8 +201,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 <script>
+    $('.deleteEntity').click(function (e) {
+        e.preventDefault();
+        $.confirm({
+            title: 'تاییدیه حذف...',
+            content: 'آیا از حذف اطلاعات اطمینان دارید؟',
+            type: 'red',
+            typeAnimated: true,
+            buttons: {
+                yes: {
+                    text: 'بله',
+                    btnClass: 'btn-red',
+                    action: function () {
+                        $(e.target).closest('form').submit();
+                    }
+                },
+                close: {
+                    text: 'خیر',
+                    btnClass: 'btn-white',
+                    action: function () {
+                    }
+                }
+            }
+        });
+    });
 
     @yield('javaScript')
-
 
 </script>
