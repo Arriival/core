@@ -14,11 +14,14 @@ class CreateActionsTable extends Migration
     public function up()
     {
         Schema::create('actions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
+            $table->bigInteger('parent_id')->unsigned()->nullable();
+            $table->foreign('parent_id')->references('id')->on('actions');
             $table->string('title', 100);
             $table->string('code', 5)->unique();
             $table->string('icon', 20);
             $table->string('route', 500);
+            $table->integer('order');
             $table->timestamps();
         });
     }

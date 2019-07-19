@@ -15,8 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//home
+Route::resource('home', 'ActionController');
+
+//personnel
+Route::prefix('personnel')->group(function () {
+    Route::get('select', 'BasePersonController@list')->name('personnel.list');
+});
+Route::resource('personnel', 'BasePersonController');
+
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+//user
+Route::prefix('user')->group(function () {
+    Route::get('personnel', 'UserController@showPersonList')->name('user.personnel');
+});
+Route::resource('user', 'UserController');
 
-Route::resource('home', 'ActionController');
+//role
+Route::resource('role', 'RoleController');
+Route::resource('role.search', 'RoleController@search');
+
+
