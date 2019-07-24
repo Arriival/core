@@ -50,7 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="/dist/css/skins/square/_all.css" rel="stylesheet">
     <link href="/dist/css/jquery-confirm.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/dist/css/alertify.min.css" />
-    <link rel="stylesheet" href="/dist/css/themes/default.min.css" />
+    <link rel="stylesheet" href="/dist/css/themes/default.css" />
 
 
 </head>
@@ -231,7 +231,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     });
 
     @yield('javaScript')
-    alertify.warning('Ready!');
+    @if (session('warning'))
+    alertify.warning('{{session('warning')}}');
+    @endif
 
 
 

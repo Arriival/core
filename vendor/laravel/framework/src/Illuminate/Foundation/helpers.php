@@ -955,10 +955,11 @@ if (! function_exists('view')) {
     /**
      * Get the evaluated view contents for the given view.
      *
-     * @param  string|null  $view
-     * @param  \Illuminate\Contracts\Support\Arrayable|array   $data
-     * @param  array   $mergeData
+     * @param  string|null $view
+     * @param  \Illuminate\Contracts\Support\Arrayable|array $data
+     * @param  array $mergeData
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     function view($view = null, $data = [], $mergeData = [])
     {

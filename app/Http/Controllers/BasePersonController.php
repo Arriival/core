@@ -12,6 +12,7 @@ class BasePersonController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function index(Request $request)
     {
