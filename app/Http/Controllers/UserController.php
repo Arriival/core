@@ -25,7 +25,9 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function create(Request $request)
     {
@@ -93,10 +95,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if (Auth::id() != $id) {
-            User::find($id)->delete();
+        if (Auth::id() == $id) {
+            return redirect()->back()->with('warning', 'امکان حذف کاربر جاری وجود ندارد!');
         }
-
+        User::find($id)->delete();
         return redirect(url('user'));
     }
 }

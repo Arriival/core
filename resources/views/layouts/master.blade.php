@@ -31,6 +31,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="text/javascript" src="/dist/js/mdb.min.js"></script>
     <script src="/dist/js/icheck.js"></script>
     <script src="/dist/js/jquery-confirm.min.js"></script>
+    <!-- include the script -->
+    <script src="/dist/js/alertify.min.js"></script>
 
 
     <!-- Styles -->
@@ -47,6 +49,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="/dist/css/mdb.css" rel="stylesheet">
     <link href="/dist/css/skins/square/_all.css" rel="stylesheet">
     <link href="/dist/css/jquery-confirm.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/dist/css/alertify.min.css" />
+    <link rel="stylesheet" href="/dist/css/themes/default.css" />
 
 
 </head>
@@ -227,5 +231,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     });
 
     @yield('javaScript')
+    @if (session('warning'))
+    alertify.warning('{{session('warning')}}');
+    @endif
+
+
 
 </script>
