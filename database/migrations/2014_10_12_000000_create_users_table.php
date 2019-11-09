@@ -20,6 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('username',100)->unique();
             $table->timestamp('username_verified_at')->nullable();
             $table->string('password',100);
+            $table->date('expire_date')->nullable();
+            $table->boolean('status');
+            $table->boolean('block')->nullable();
+            $table->time('unblock_time')->nullable();
+            $table->integer('wrong_trying',false,true)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

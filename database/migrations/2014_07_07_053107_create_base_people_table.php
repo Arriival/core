@@ -20,9 +20,9 @@ class CreateBasePeopleTable extends Migration
             $table->string('code',10)->unique();
             $table->boolean('gender');
             $table->boolean('isActive');
-            $table->string('email');
-            $table->string('phoneNumber');
-            $table->binary('image');
+            $table->string('email')->nullable();
+            $table->string('phoneNumber')->nullable();
+            $table->binary('image')->nullable();
             $table->timestamps();
         });
     }

@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use App\BasePerson;
 use App\User;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function index()
     {
@@ -69,10 +78,15 @@ class UserController extends Controller
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $person = BasePerson::find($user->person->id);
+        $data['person'] = $person;
+        $data['user'] = $user;
+        return view('user.Edit', $data);
     }
 
     /**
@@ -84,6 +98,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        dd($request->all());
         //
     }
 
@@ -99,6 +114,20 @@ class UserController extends Controller
             return redirect()->back()->with('warning', 'امکان حذف کاربر جاری وجود ندارد!');
         }
         User::find($id)->delete();
+        return redirect(url('user'));
+    }
+
+    public function changeStatus($id)
+    {
+        $user = User::find($id);
+        $status = $user->status;
+        if ($status == 1) {
+            $user->status = 0;
+        }
+        if ($status == 0) {
+            $user->status = 1;
+        }
+        $user->save();
         return redirect(url('user'));
     }
 }

@@ -101,12 +101,12 @@ class BasePersonController extends Controller
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function edit($id)
     {
         $person = BasePerson::find($id);
         $data['person'] = $person;
-//        return view_master('layouts.personnel.New', $data);
         return view('layouts.personnel.New', $data);
     }
 
@@ -155,7 +155,7 @@ class BasePersonController extends Controller
     public function validator(Request $request)
     {
         $rules = [
-            'firstName' => 'required|alpha',
+            'firstName' => 'required',
             'lastName' => 'required|alpha',
             'code' => 'required|max:10|alpha_num',
             'gender' => 'required|boolean',
