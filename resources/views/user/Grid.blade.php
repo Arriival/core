@@ -55,8 +55,9 @@
 
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#"><i class=" text-info"></i>تغییر رمز عبور</a>
-                                    <a class="dropdown-item" href="#"><i class="  text-info"></i>فعال / غیرفعال</a>
+                                    <a class="dropdown-item" href="{{route('user.status', $user->id)}}"><i class="  text-info"></i>فعال / غیرفعال</a>
                                     <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{route('user.edit', $user->id)}}"><i class="  text-info"></i>ویرایش</a>
                                     <form method="POST" action="{{route('user.destroy', $user->id)}}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}

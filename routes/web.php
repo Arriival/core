@@ -15,16 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::post('/api/login', function (\Request $request) {
-    \Illuminate\Support\Facades\Log::alert("mahdi");
-    return ($request->username);
-
-//    \Illuminate\Support\Facades\Log::alert($request->json());
-
-
-    return "eyJpdiI6Ilg4MnRTTCs5REJwUldLa0VaUlh6cXc9PSIsInZhbHVlIjoiRnEySWcwNWxmSTlMbVhFQkFRaFNQMmkxaVp3Qnd1M2FcL3BiMWQ5NDVJeHFDVmlxTlZITHhLYzRKUnZxWnZpUGgiLCJtYWMiOiI5YjZmN2RhYzNiZTMzZTkyOWI0MTJhMTUyYjZiNmQzYTY3OTU5ZWFjMzM3NjFkZjVhNzM2YzQzYzAwMjhhNTM0In0";
-});*/
-
 //home
 Route::resource('home', 'ActionController');
 
@@ -39,6 +29,7 @@ Auth::routes();
 //user
 Route::prefix('user')->group(function () {
     Route::get('personnel', 'UserController@showPersonList')->name('user.personnel');
+    Route::get('changeStatus/{id}', 'UserController@changeStatus')->name('user.status');
 });
 Route::resource('user', 'UserController');
 

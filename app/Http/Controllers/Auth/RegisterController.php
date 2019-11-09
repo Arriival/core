@@ -66,6 +66,8 @@ class RegisterController extends Controller
             'person_id' => $data['person'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
+            'status' => true,
+            'expire_date' => $data['expire_date'],
         ]);
     }
 }
