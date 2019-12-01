@@ -38,3 +38,17 @@ Route::resource('role', 'RoleController');
 Route::resource('role.search', 'RoleController@search');
 
 
+Route::resource('note', 'NoteController');
+
+
+Route::prefix('subject')->group(function () {
+    Route::get('getAll', 'SubjectController@getAll')->name('subject.getAll');
+});
+Route::resource('subject', 'SubjectController');
+
+Route::resource('topic', 'TopicController');
+
+Route::resource('dailyBook', 'DailyBookController');
+
+
+

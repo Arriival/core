@@ -33,6 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/dist/js/jquery-confirm.min.js"></script>
     <!-- include the script -->
     <script src="/dist/js/alertify.min.js"></script>
+
     <!-- persianDatePicker -->
     <script src="/dist/js/persianDatePicker/persian-date-0.1.8.min.js"></script>
     <script src="/dist/js/persianDatePicker/persian-datepicker-0.4.5.min.js"></script>
@@ -209,6 +210,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 <script>
+    $(document).ready(function() {
+        $(".date").pDatepicker({
+            observer: true,
+            format: 'YYYY/MM/DD'
+        });
+    });
+
     $('.deleteEntity').click(function (e) {
         e.preventDefault();
         $.confirm({

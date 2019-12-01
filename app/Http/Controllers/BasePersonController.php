@@ -72,7 +72,7 @@ class BasePersonController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function store(Request $request)
     {
