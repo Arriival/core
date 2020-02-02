@@ -16,38 +16,30 @@
         <div class="card-body">
             <div class="row mt-5">
                 <div class="col-sm-3">
-                    <select id="subject" name="subject" class="form-control ">
+                    <select id="subject" name="subject" class="form-control" onchange="getTopics(this.value)">
                         <option value="-1">...</option>
-                        <option value="1">فروردین</option>
-                        <option value="2">اردیبهشت</option>
-                        <option value="3">خرداد</option>
-                        <option value="4">تیر</option>
-                        <option value="5">مرداد</option>
-                        <option value="6">شهریور</option>
-                        <option value="7">مهر</option>
-                        <option value="8">آبان</option>
-                        <option value="9">آذر</option>
-                        <option value="10">دی</option>
-                        <option value="11">بهمن</option>
-                        <option value="12">اسفند</option>
                     </select>
                 </div>
                 <div class="col-sm-3">
-                    <select id="topic" name="topic" class="form-control ">
+                    <select id="topic" name="topic" class="form-control " onchange="refreshData(this.value)">
                         <option value="-1">...</option>
-                        <option value="1">فروردین</option>
-                        <option value="2">اردیبهشت</option>
-                        <option value="3">خرداد</option>
-                        <option value="4">تیر</option>
-                        <option value="5">مرداد</option>
-                        <option value="6">شهریور</option>
-                        <option value="7">مهر</option>
-                        <option value="8">آبان</option>
-                        <option value="9">آذر</option>
-                        <option value="10">دی</option>
-                        <option value="11">بهمن</option>
-                        <option value="12">اسفند</option>
                     </select>
+                </div>
+                <div class="col-sm-5 mt-1 mr-5 ">
+                    <span class="col-sm-6">
+                        مانده کل :
+                    </span>
+                    <span class="col-sm-6 ">
+                        @if($totalRemaining < 0)
+                            <span class="text-danger">
+                                    {{$totalRemaining}}
+                                </span>
+                        @else
+                            <span class="ltr">
+                                    {{$totalRemaining}}
+                                </span>
+                        @endif
+                    </span>
                 </div>
             </div>
             <div class="row mt-3">
@@ -58,42 +50,64 @@
                         </th>
                         <th class="col-sm-1">کد
                         </th>
-                        <th class="col-sm-3">عنوان
+                        <th class="col-sm-1">تاریخ
                         </th>
-                        <th class="col-sm-5">توضیحات
+                        <th class="col-sm-1">ش سند
                         </th>
-                        <th class="col-sm-1">مبلغ
+                        <th class="col-sm-5"> شرح
+                        </th>
+                        <th class="col-sm-1">بدهکار/بستانکار
+                        </th>
+                        <th class="col-sm-1">مانده
                         </th>
                         <th class="col-sm-1 text-left">عملیات
                         </th>
                     </tr>
                     </thead>
                     <tbody>
+                    @php
+                        $remaining = 0;
+                    @endphp
                     @foreach ($result as $item)
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->code}}</td>
-                            <td>{{$item->title}}</td>
+                            <td>{{$item->date}}</td>
+                            <td>{{$item->document_number}}</td>
                             <td>{{$item->description}}</td>
-                            <td align="left">
+                            <td class="ltr">
+                                {{$item->amount}}
+                            </td>
+                            <td class="ltr">
+                                @php
+                                    $remaining = $remaining + $item->amount;
+                                @endphp
+                                @if($remaining < 0)
+                                    <span class="text-danger">
+                                    {{$remaining}}
+                                </span>
+                                @else
+                                    <span>
+                                    {{$remaining}}
+                                </span>
+                                @endif
+                            </td>
+                            <td align="left" class="p-0">
                                 <a class="btn btn-md btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">عملیات</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{route('dailyBook.edit',$item->id)}}"><i class="  text-info"></i>ویرایش</a>
-                                    <form method="POST" action="{{route('dailyBook.destroy',$item->id)}}">
+                                    <a class="dropdown-item" href="{{route('dailyBook.edit',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}"><i class="  text-info"></i>ویرایش</a>
+                                    <form method="POST" action="{{route('dailyBook.destroy',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <input type="submit" class="dropdown-item deleteEntity" onsubmit="return confirmDelete()" value="حذف">
                                     </form>
                                 </div>
                             </td>
-
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-
-
             </div>
             {{$result->links()}}
         </div>
@@ -139,16 +153,54 @@
 @endsection
 
 @section('javaScript')
+
     {{--<script>--}}
     $.ajax({
-        url: '{{ route('subject.getAll') }}',
-        type: 'GET',
-        contentType: 'application/json; charset=utf-8',
-        success: function (res) {
-            console.log(res);
-        }
+    url: '{{ route('subject.getAll') }}',
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json; charset=utf-8',
+    success: function (res) {
+    $.each(res, function (key, val) {
+    $("#subject").append(new Option(val.title, val.id));
+    });
+    @if($subject)
+        $("#subject").val("{{$subject}}");
+        getTopics({{$subject}});
+    @endif
+    }
     });
 
 
-    {{--// </script>--}}
+    function getTopics(id) {
+    $("#topic").empty().append(new Option("...", -1));
+    var url = '{{route("topic.getAll" , ":subjectId")}}';
+    url = url.replace(':subjectId', id);
+    $.ajax({
+    url: url,
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json; charset=utf-8',
+    success: function (res) {
+    $.each(res, function (key, val) {
+    $("#topic").append(new Option(val.title, val.id));
+    });
+    @if($topic_id)
+        $("#topic").val("{{$topic_id}}");
+    @endif
+    }
+    });
+    }
+
+    function refreshData(id) {
+    var param = 'subject=:subjectId&topic=:topicId';
+    param = param.replace(':subjectId', $("#subject").val());
+    param = param.replace(':topicId', $("#topic").val());
+    var url = '{{route("dailyBook.index" , ":param")}}';
+    url = url.replace(':param', param);
+    location.href= url;
+    }
+
+
+    {{--</script>--}}
 @endsection

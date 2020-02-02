@@ -18,7 +18,8 @@ class CreateDailyBooksTable extends Migration
             $table->bigInteger('topic_id')->unsigned();
             $table->foreign('topic_id')->references('id')->on('topics');
             $table->string('code')->nullable();
-            $table->string('title');
+            $table->string('date');
+            $table->string('document_number');
             $table->double('amount');
             $table->string('description')->nullable();
             $table->bigInteger('user_id')->unsigned();

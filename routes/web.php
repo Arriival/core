@@ -46,6 +46,10 @@ Route::prefix('subject')->group(function () {
 });
 Route::resource('subject', 'SubjectController');
 
+
+Route::prefix('topic')->group(function () {
+    Route::get('getAll/{id}', 'TopicController@getAll')->name('topic.getAll');
+});
 Route::resource('topic', 'TopicController');
 
 Route::resource('dailyBook', 'DailyBookController');

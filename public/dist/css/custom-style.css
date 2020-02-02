@@ -311,3 +311,7 @@ input.invalid {
 td {
     vertical-align: middle !important;
 }
+
+.ltr {
+    direction: ltr;
+}

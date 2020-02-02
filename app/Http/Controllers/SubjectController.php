@@ -18,9 +18,9 @@ class SubjectController extends Controller
 
     public function getAll()
     {
-        $result = Subject::where('user_id', Auth::user()->id);
+        $result = Subject::where('user_id', Auth::user()->id)->get();
         if ($result) {
-            return response(['res' => $result], 200);
+            return response($result, 200);
         } else {
             return response(['res' => 'Not deleted'], 404);
 

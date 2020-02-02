@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::POST('/login', function (Request $request) {
+//    return "eyJpdiI6Ilg4MnRTTCs5REJwUldLa0VaUlh6cXc9PSIsInZhbHVlIjoiRnEySW";
     if ($request->username == "admin" and $request->password == "admin") {
         return "eyJpdiI6Ilg4MnRTTCs5REJwUldLa0VaUlh6cXc9PSIsInZhbHVlIjoiRnEySW";
     }
@@ -35,7 +36,7 @@ Route::GET('hrm/rest/education/courses/{courseCode}/participants', function (Req
 
     for ($i = 0; $i < 10; $i++) {
         $obj = new Person();
-        $obj->personelCode = mt_rand(10000000, 99999999);
+//        $obj->personelCode = mt_rand(10000000, 99999999);
         $obj->nationalNumber = mt_rand(100000000, 999999999);
         $obj->firstName = "نام";
         $obj->lastName = "نام خانوادگی";

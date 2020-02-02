@@ -19,6 +19,17 @@ class TopicController extends Controller
         return view('topic.Grid', $data);
     }
 
+    public function getAll($id)
+    {
+        $result = Topic::where('user_id', Auth::user()->id)->where('subject_id', $id)->get();
+        if ($result) {
+            return response($result, 200);
+        } else {
+            return response(['res' => 'Not deleted'], 404);
+
+        }
+    }
+
     public function create(Request $request)
     {
         $data['entity'] = new Topic();
