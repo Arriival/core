@@ -19,7 +19,7 @@
                         <div class="card  card-primary card-outline grid-shadow">
                             <div class="card-body box-profile">
                                 <div class="text-center">
-                                    <img class="img-fluid profile-user-img @if($person->isActive) active @else deActive @endif img-circle" src="../../dist/img/user8-128x128.jpg">
+                                    <img class="img-fluid profile-user-img @if($person->isActive) active @else deActive @endif img-circle" src="@php echo \Illuminate\Support\Facades\Storage::url($person->image);@endphp" style="height: 150px ; width: 150px">
                                 </div>
                                 <h3 class="profile-username text-center">{{$person->firstName . " " . $person->lastName}}</h3>
                                 <p class="text-muted text-center">مهندس نرم افزار</p>
@@ -109,9 +109,6 @@
 
                             <div class="row">
                                 <div class="md-form input-group input-group-sm mb-3 col-sm-6">
-                                    {{-- <div class="input-group-prepend">
-                                         <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-sm">نام</span>
-                                     </div>--}}
                                     <input id="firstName" name="firstName" type="text" class="form-control" placeholder="نام" value="{{ $request->firstName}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3 col-sm-6">
@@ -128,9 +125,6 @@
 
                         <!--Footer-->
                         <div class="modal-footer justify-content-center">
-                            {{-- <a type="submit" class="btn btn-primary waves-effect waves-light">اعمال فیلتر
-                                 <i class="fa fa-filter ml-1"></i>
-                             </a>--}}
                             <input type="submit" class="btn btn-primary waves-effect waves-light" value="اعمال فیلتر">
                             <a type="button" class="btn btn-outline-primary waves-effect">پاک کردن</a>
                         </div>

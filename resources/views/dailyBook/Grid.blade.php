@@ -31,11 +31,11 @@
                     </span>
                     <span class="col-sm-6 ">
                         @if($totalRemaining < 0)
-                            <span class="text-danger">
+                            <span class="text-danger persianNumber">
                                     {{$totalRemaining}}
                                 </span>
                         @else
-                            <span class="ltr">
+                            <span class="ltr persianNumber">
                                     {{$totalRemaining}}
                                 </span>
                         @endif
@@ -70,24 +70,35 @@
                     @endphp
                     @foreach ($result as $item)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
+                            <td>
+                                <span class="persianNumber">
+                               {{$loop->iteration}}
+                                </span>
+
+                            </td>
                             <td>{{$item->code}}</td>
-                            <td>{{$item->date}}</td>
+                            <td>
+                                <span class="persianNumber">
+                                {{$item->date}}
+                                </span>
+                            </td>
                             <td>{{$item->document_number}}</td>
                             <td>{{$item->description}}</td>
                             <td class="ltr">
+                                <span class="persianNumber">
                                 {{$item->amount}}
+                                </span>
                             </td>
                             <td class="ltr">
                                 @php
                                     $remaining = $remaining + $item->amount;
                                 @endphp
                                 @if($remaining < 0)
-                                    <span class="text-danger">
+                                    <span class="text-danger number">
                                     {{$remaining}}
                                 </span>
                                 @else
-                                    <span>
+                                    <span class="persianNumber">
                                     {{$remaining}}
                                 </span>
                                 @endif
@@ -96,6 +107,8 @@
                                 <a class="btn btn-md btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">عملیات</a>
                                 <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#"><i class="text-info"></i>پیوست سند</a>
+                                    <hr class="m-1">
                                     <a class="dropdown-item" href="{{route('dailyBook.edit',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}"><i class="  text-info"></i>ویرایش</a>
                                     <form method="POST" action="{{route('dailyBook.destroy',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}">
                                         {{ csrf_field() }}
@@ -109,46 +122,63 @@
                     </tbody>
                 </table>
             </div>
-            {{$result->links()}}
+            {{$result->appends(['subject'=>$subject, 'topic'=>$topic_id])->links()}}
         </div>
     </div>
 
 @endsection
 @section('searchBox')
-    {{-- <section>
-         <!-- Modal: modalPoll -->
-         <div class="modal fade left" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-              aria-hidden="true" data-backdrop="true" style="z-index: 99999 ">
-             <form action="{{url('personnel')}}" method="GET">
-                 <div class="modal-dialog modal-fluid modal-full-height modal-left modal-notify modal-info" role="document">
-                     <div class="modal-content">
-                         <!--Header-->
-                         <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                 <span aria-hidden="true" class="white-text"><i class="fa fa-times text-white"></i></span>
-                             </button>
-                             <p class="heading lead">جستجو</p>
-                         </div>
+    <section>
+        <!-- Modal: modalPoll -->
+        <div class="modal fade left" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true" data-backdrop="true" style="z-index: 99999 ">
+            <form action="{{url('dailyBook')}}" method="GET">
+                <div class="modal-dialog modal-fluid modal-full-height modal-left modal-notify modal-info" role="document">
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="white-text"><i class="fa fa-times text-white"></i></span>
+                            </button>
+                            <p class="heading lead">جستجو</p>
+                        </div>
 
-                         <!--Body-->
-                         <div class="modal-body">
+                        <!--Body-->
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="md-form input-group input-group-sm mb-3 col-sm-6">
 
-                         </div>
+                                    <input id="fromDate" name="fromDate" type="text" class="form-control search" placeholder="از تاریخ" value="{{ $request->fromDate}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                                <div class="md-form input-group input-group-sm mb-3 col-sm-6">
+                                    <input id="toDate" name="toDate" type="text" class="form-control search" placeholder="تا تاریخ" value="{{ $request->toDate}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                                <div class="md-form input-group input-group-sm mb-3  col-sm-6">
+                                    <input id="amountFrom" name="amountFrom" type="text" class="form-control search" placeholder="مبلغ از" value="{{ $request->amountFrom}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                                <div class="md-form input-group input-group-sm mb-3  col-sm-6">
+                                    <input id="amountTo" name="amountTo" type="text" class="form-control search" placeholder="مبلغ تا" value="{{ $request->amountTo}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                                <div class="md-form input-group input-group-sm mb-3  col-sm-6">
+                                    <input id="code" name="code" type="text" class="form-control search" placeholder="کد" value="{{ $request->code}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                                <div class="md-form input-group input-group-sm mb-3  col-sm-6">
+                                    <input id="docNumber" name="documentNumber" type="text" class="form-control search" placeholder="شماره سند" value="{{ $request->documentNumber}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                            </div>
+                        </div>
 
-                         <!--Footer-->
-                         <div class="modal-footer justify-content-center">
-                             --}}{{-- <a type="submit" class="btn btn-primary waves-effect waves-light">اعمال فیلتر
-                                  <i class="fa fa-filter ml-1"></i>
-                              </a>--}}{{--
-                             <input type="submit" class="btn btn-primary waves-effect waves-light" value="اعمال فیلتر">
-                             <a type="button" class="btn btn-outline-primary waves-effect">پاک کردن</a>
-                         </div>
-                     </div>
-                 </div>
-             </form>
-         </div>
-         <!-- Modal: modalPoll -->
-     </section>--}}
+                        <!--Footer-->
+                        <div class="modal-footer justify-content-center">
+                            <input type="submit" class="btn btn-primary waves-effect waves-light" value="اعمال فیلتر">
+                            <a type="button" class="btn btn-outline-primary waves-effect" onclick="$('.search').val('')">پاک کردن</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Modal: modalPoll -->
+    </section>
     <!-- Modal: modalPoll -->
 @endsection
 

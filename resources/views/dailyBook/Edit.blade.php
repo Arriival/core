@@ -74,7 +74,7 @@
                                                                 مبلغ
                                                             </label>
                                                             <span class="validation-error">@error('amount') {{$message}} @enderror</span>
-                                                            <input id="amount" name="amount" type="text" class="form-control text-center required" style="direction: ltr" value="@if($entity->id > 0) @if($entity->amount <0 ) {{$entity->amount * -1}} @else {{$entity->amount}} @endif @else {{ old('amount') }} @endif ">
+                                                            <input id="amount" name="amount" type="text" class="form-control text-center required" style="direction: ltr" value="@if($entity->id > 0) {{$entity->amount}} {{--@if($entity->amount <0 ) {{$entity->amount * -1}} @else {{$entity->amount}} @endif--}} @else {{ old('amount') }} @endif ">
                                                         </div>
                                                         <div class="form-group form-group-sm col-sm-2 mt-4">
                                                             <div class="row">
@@ -125,41 +125,41 @@
     {{--<script>--}}
 
 
-        $.ajax({
-            url: '{{ route('subject.getAll') }}',
-            type: 'GET',
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
-            success: function (res) {
-                $.each(res, function (key, val) {
-                    $("#subject").append(new Option(val.title, val.id));
-                });
-                @if($entity->id > 0)
-                    $("#subject").val("{{$subject}}");
-                    getTopics({{$subject}});
-                @endif
-            }
-        });
+    $.ajax({
+    url: '{{ route('subject.getAll') }}',
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json; charset=utf-8',
+    success: function (res) {
+    $.each(res, function (key, val) {
+    $("#subject").append(new Option(val.title, val.id));
+    });
+    @if($entity->id > 0)
+        $("#subject").val("{{$subject}}");
+        getTopics({{$subject}});
+    @endif
+    }
+    });
 
-        function getTopics(id) {
-            $("#topic").empty().append(new Option("...", -1));
-            var url = '{{route("topic.getAll" , ":subjectId")}}';
-            url = url.replace(':subjectId', id);
-            $.ajax({
-                url: url,
-                type: 'GET',
-                dataType: 'json',
-                contentType: 'application/json; charset=utf-8',
-                success: function (res) {
-                    $.each(res, function (key, val) {
-                        $("#topic").append(new Option(val.title, val.id));
-                        @if($entity->topic_id)
-                            $("#topic").val("{{$entity->topic_id}}");
-                        @endif
-                    });
-                }
-            });
-        }
+    function getTopics(id) {
+    $("#topic").empty().append(new Option("...", -1));
+    var url = '{{route("topic.getAll" , ":subjectId")}}';
+    url = url.replace(':subjectId', id);
+    $.ajax({
+    url: url,
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json; charset=utf-8',
+    success: function (res) {
+    $.each(res, function (key, val) {
+    $("#topic").append(new Option(val.title, val.id));
+    @if($entity->topic_id)
+        $("#topic").val("{{$entity->topic_id}}");
+    @endif
+    });
+    }
+    });
+    }
 
 
     {{--</script>--}}

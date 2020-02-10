@@ -139,7 +139,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../../dist/img/user8-128x128.jpg" class="img-circle elevation-2">
+                        <img src="@php echo \Illuminate\Support\Facades\Storage::url(Auth::user()->person->image);@endphp" class="img-circle elevation-2" style="height: 40px ; width: 40px">
                     </div>
                     <div class="info">
                         <a href="" class="d-block">
@@ -192,13 +192,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-wrapper -->
 
     <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
+    {{--<aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
         <div class="p-3">
             <h5>Title</h5>
             <p>Sidebar content</p>
         </div>
-    </aside>
+    </aside>--}}
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->

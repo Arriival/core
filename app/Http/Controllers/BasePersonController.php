@@ -20,6 +20,7 @@ class BasePersonController extends Controller
               $user=Auth::user();
               $user->assignRole('writer');*/
 
+
         $person = BasePerson::query();
 
         if ($request->has('firstName') && !is_null($request->firstName)) {
@@ -80,6 +81,7 @@ class BasePersonController extends Controller
             'firstName' => 'required|max:1',
             'lastName' => 'required|max:1',
         ]);*/
+
         $this->validator($request);
 
         BasePerson::create($request->all());
@@ -119,18 +121,12 @@ class BasePersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $this->validator($request);
-        BasePerson::find($id)->update($request->request->all());
+        BasePerson::find($id)->update($this->fileUpload($request)->all());
         return redirect(url('personnel'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $person = BasePerson::find($id)->delete();
@@ -176,6 +172,14 @@ class BasePersonController extends Controller
 
         return $this->validate($request, $rules, $customMessages);
 
+    }
+
+    public function fileUpload(Request $request)
+    {
+        if ($request->hasFile('avatar')) {
+            $request->request->add(['image' => $request->file('avatar')->store('public/avatar')]);
+        }
+        return $request;
     }
 
 }

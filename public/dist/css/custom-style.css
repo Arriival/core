@@ -312,6 +312,12 @@ td {
     vertical-align: middle !important;
 }
 
+.persianNumber {
+
+    font-family: "Nazanin";
+    font-size: large;
+}
+
 .ltr {
     direction: ltr;
 }

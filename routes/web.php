@@ -54,5 +54,7 @@ Route::resource('topic', 'TopicController');
 
 Route::resource('dailyBook', 'DailyBookController');
 
+Route::resource('file', 'FileUtilController');
+
 
 

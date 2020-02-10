@@ -18,9 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::POST('/login', function (Request $request) {
-//    return "eyJpdiI6Ilg4MnRTTCs5REJwUldLa0VaUlh6cXc9PSIsInZhbHVlIjoiRnEySW";
     if ($request->username == "admin" and $request->password == "admin") {
         return "eyJpdiI6Ilg4MnRTTCs5REJwUldLa0VaUlh6cXc9PSIsInZhbHVlIjoiRnEySW";
+//        return "eee";
     }
 });
 Route::POST('/hrm/rest/education/courses', function (Request $request) {

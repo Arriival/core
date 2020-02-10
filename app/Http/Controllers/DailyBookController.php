@@ -5,15 +5,42 @@ namespace App\Http\Controllers;
 use App\DailyBook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DailyBookController extends Controller
 {
     public function index(Request $request)
     {
-        $result = DailyBook::where('user_id', Auth::user()->id)->where('topic_id', $request->topic)->orderBy('date', 'asc');
-        $result = $result->paginate(10);
+
+        Storage::disk('local')->put('file.txt', 'salam.');
+
+        $query = DB::table('daily_books');
+        if ($request->has('fromDate') && !is_null($request->fromDate)) {
+            $query->where('date', '>=', $request->fromDate);
+        }
+        if ($request->has('toDate') && !is_null($request->toDate)) {
+            $query->where('date', '<=', $request->toDate);
+        }
+
+        if ($request->has('amountFrom') && !is_null($request->amountFrom)) {
+            $query->where('amount', '>=', $request->amountFrom);
+        }
+        if ($request->has('amountTo') && !is_null($request->amountTo)) {
+            $query->where('amount', '<=', $request->amountTo);
+        }
+        if ($request->has('code') && !is_null($request->code)) {
+            $query->where('code', $request->code);
+        }
+        if ($request->has('documentNumber') && !is_null($request->documentNumber)) {
+            $query->where('document_number', $request->documentNumber);
+        }
+        $query->orWhere('user_id', Auth::user()->id)->where('topic_id', $request->topic);
+
+        $result = $query->paginate(10);
+
         $totalRemaining = $this->calculateRemaining($request->topic);
-        $data = ['result' => $result, 'subject' => $request->subject, 'topic_id' => $request->topic, 'totalRemaining'=>$totalRemaining];
+        $data = ['result' => $result, 'subject' => $request->subject, 'topic_id' => $request->topic, 'totalRemaining' => $totalRemaining, 'request' => $request];
         return view('dailyBook.Grid', $data);
     }
 
