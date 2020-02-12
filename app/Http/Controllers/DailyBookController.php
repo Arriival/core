@@ -12,9 +12,6 @@ class DailyBookController extends Controller
 {
     public function index(Request $request)
     {
-
-        Storage::disk('local')->put('file.txt', 'salam.');
-
         $query = DB::table('daily_books');
         if ($request->has('fromDate') && !is_null($request->fromDate)) {
             $query->where('date', '>=', $request->fromDate);
@@ -35,9 +32,13 @@ class DailyBookController extends Controller
         if ($request->has('documentNumber') && !is_null($request->documentNumber)) {
             $query->where('document_number', $request->documentNumber);
         }
-        $query->orWhere('user_id', Auth::user()->id)->where('topic_id', $request->topic);
+        if ($request->has('topic') && !is_null($request->topic)) {
+            $query->where('topic_id', $request->topic);
+        }
 
-        $result = $query->paginate(10);
+        $query->where('user_id', Auth::user()->id);
+
+        $result = $query->paginate(5);
 
         $totalRemaining = $this->calculateRemaining($request->topic);
         $data = ['result' => $result, 'subject' => $request->subject, 'topic_id' => $request->topic, 'totalRemaining' => $totalRemaining, 'request' => $request];

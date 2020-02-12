@@ -5,6 +5,9 @@
             <h3 class="card-title">دفتر روزنامه
             </h3>
             <div class="card-tools">
+                <button type="button" class="btn btn-app" data-toggle="modal" data-target="#reportModal">
+                    <i class="fa fa-print text-warning"></i>چاپ
+                </button>
                 <button type="button" class="btn btn-app" data-toggle="modal" data-target="#searchModal">
                     <i class="fa fa-search text-info"></i>جستجو
                 </button>
@@ -14,18 +17,8 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="row mt-5">
-                <div class="col-sm-3">
-                    <select id="subject" name="subject" class="form-control" onchange="getTopics(this.value)">
-                        <option value="-1">...</option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <select id="topic" name="topic" class="form-control " onchange="refreshData(this.value)">
-                        <option value="-1">...</option>
-                    </select>
-                </div>
-                <div class="col-sm-5 mt-1 mr-5 ">
+            <div class="row mt-5" >
+                <div class="col-sm-5 mt-1 mr-5 p-2 " style="background-color: rgba(83,126,255,0.19); border-radius:8px; ">
                     <span class="col-sm-6">
                         مانده کل :
                     </span>
@@ -46,21 +39,21 @@
                 <table id="grid" class="table table-striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th class="col-sm-1">ردیف
+                        <th>ردیف
                         </th>
-                        <th class="col-sm-1">کد
+                        <th class="">کد
                         </th>
-                        <th class="col-sm-1">تاریخ
+                        <th class="">تاریخ
                         </th>
-                        <th class="col-sm-1">ش سند
+                        <th class="">ش سند
                         </th>
-                        <th class="col-sm-5"> شرح
+                        <th class=""> شرح
                         </th>
-                        <th class="col-sm-1">بدهکار/بستانکار
+                        <th class="">بدهکار/بستانکار
                         </th>
-                        <th class="col-sm-1">مانده
+                        <th class="">مانده
                         </th>
-                        <th class="col-sm-1 text-left">عملیات
+                        <th class=" text-left">عملیات
                         </th>
                     </tr>
                     </thead>
@@ -82,7 +75,12 @@
                                 {{$item->date}}
                                 </span>
                             </td>
-                            <td>{{$item->document_number}}</td>
+                            <td>
+                                <span class="persianNumber">
+                            {{$item->document_number}}
+
+                            </span>
+                            </td>
                             <td>{{$item->description}}</td>
                             <td class="ltr">
                                 <span class="persianNumber">
@@ -94,7 +92,7 @@
                                     $remaining = $remaining + $item->amount;
                                 @endphp
                                 @if($remaining < 0)
-                                    <span class="text-danger number">
+                                    <span class="text-danger persianNumber">
                                     {{$remaining}}
                                 </span>
                                 @else
@@ -123,6 +121,7 @@
                 </table>
             </div>
             {{$result->appends(['subject'=>$subject, 'topic'=>$topic_id])->links()}}
+
         </div>
     </div>
 
@@ -130,10 +129,10 @@
 @section('searchBox')
     <section>
         <!-- Modal: modalPoll -->
-        <div class="modal fade left" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade top" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true" data-backdrop="true" style="z-index: 99999 ">
             <form action="{{url('dailyBook')}}" method="GET">
-                <div class="modal-dialog modal-fluid modal-full-height modal-left modal-notify modal-info" role="document">
+                <div class="modal-dialog modal-fluid modal-full-height modal-top modal-notify modal-info" role="document">
                     <div class="modal-content">
                         <!--Header-->
                         <div class="modal-header">
@@ -146,17 +145,31 @@
                         <!--Body-->
                         <div class="modal-body">
                             <div class="row">
-                                <div class="md-form input-group input-group-sm mb-3 col-sm-6">
+                                {{--<input id="subject_search" name="subject" type="hidden" class="form-control search" placeholder="سرفصل" value="{{ $request->subject}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">--}}
+                                {{--<input id="topic_search" name="topic" type="hidden" class="form-control search" placeholder="موضوع" value="{{ $request->topic_id}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">--}}
 
+                                <div class="col-sm-6">
+                                    <select id="subject" name="subject" class="form-control search" onchange="getTopics(this.value)">
+                                        <option value="-1">...</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <select id="topic" name="topic" class="form-control search" {{--onchange="refreshData(this.value)"--}}>
+                                        <option value="-1">...</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="md-form input-group input-group-sm mb-3 col-sm-3">
                                     <input id="fromDate" name="fromDate" type="text" class="form-control search" placeholder="از تاریخ" value="{{ $request->fromDate}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
-                                <div class="md-form input-group input-group-sm mb-3 col-sm-6">
+                                <div class="md-form input-group input-group-sm mb-3 col-sm-3">
                                     <input id="toDate" name="toDate" type="text" class="form-control search" placeholder="تا تاریخ" value="{{ $request->toDate}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
-                                <div class="md-form input-group input-group-sm mb-3  col-sm-6">
+                                <div class="md-form input-group input-group-sm mb-3  col-sm-3">
                                     <input id="amountFrom" name="amountFrom" type="text" class="form-control search" placeholder="مبلغ از" value="{{ $request->amountFrom}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
-                                <div class="md-form input-group input-group-sm mb-3  col-sm-6">
+                                <div class="md-form input-group input-group-sm mb-3  col-sm-3">
                                     <input id="amountTo" name="amountTo" type="text" class="form-control search" placeholder="مبلغ تا" value="{{ $request->amountTo}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-6">
@@ -217,6 +230,7 @@
     });
     @if($topic_id)
         $("#topic").val("{{$topic_id}}");
+        $("#topic_search").val("{{$topic_id}}");
     @endif
     }
     });
@@ -230,6 +244,11 @@
     url = url.replace(':param', param);
     location.href= url;
     }
+
+    function clearForm(){
+
+    }
+
 
 
     {{--</script>--}}

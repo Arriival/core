@@ -296,6 +296,7 @@ ul {
     font-family: Tahoma;
 }
 
+
 input.required {
     border-right: solid 3px red;
 }
@@ -314,8 +315,7 @@ td {
 
 .persianNumber {
 
-    font-family: "Nazanin";
-    font-size: large;
+    font-family: "2  Yekan";
 }
 
 .ltr {
