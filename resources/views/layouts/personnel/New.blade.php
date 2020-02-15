@@ -47,7 +47,7 @@
                                     <div class="card-body box-profile">
                                         <div class="row">
                                             <div class="col-sm-3 text-center">
-                                                <img class="img-fluid profile-user-img lg img-circle" src="@php echo \Illuminate\Support\Facades\Storage::url($person->image);@endphp">
+                                                <img class="img-fluid profile-user-img lg img-circle" src="{{Storage::url($person->image)}}" style="height: 200px ; width: 200px">
                                                 <div class="text-center mt-3">
                                                     <span id="imageName">---</span>
                                                 </div>

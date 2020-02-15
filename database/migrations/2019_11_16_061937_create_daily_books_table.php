@@ -20,6 +20,7 @@ class CreateDailyBooksTable extends Migration
             $table->string('code')->nullable();
             $table->string('date');
             $table->string('document_number');
+            $table->string('attachFile')->nullable();
             $table->double('amount');
             $table->string('description')->nullable();
             $table->bigInteger('user_id')->unsigned();

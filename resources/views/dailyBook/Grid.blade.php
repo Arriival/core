@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="row mt-5" >
+            <div class="row mt-5">
                 <div class="col-sm-5 mt-1 mr-5 p-2 " style="background-color: rgba(83,126,255,0.19); border-radius:8px; ">
                     <span class="col-sm-6">
                         مانده کل :
@@ -53,6 +53,8 @@
                         </th>
                         <th class="">مانده
                         </th>
+                        <th class="">پیوست
+                        </th>
                         <th class=" text-left">عملیات
                         </th>
                     </tr>
@@ -81,7 +83,9 @@
 
                             </span>
                             </td>
-                            <td>{{$item->description}}</td>
+                            <td>
+                                {{$item->description}}
+                            </td>
                             <td class="ltr">
                                 <span class="persianNumber">
                                 {{$item->amount}}
@@ -101,12 +105,18 @@
                                 </span>
                                 @endif
                             </td>
+                            <td>
+                                @if($item->attachFile != null)
+                                    <a class="dropdown-item" href="{{Storage::url($item->attachFile)}}" target="_blank">
+                                    <i class="fa fa-download text-lg text-success" style="cursor: pointer"></i>
+                                    </a>
+                                @endif
+
+                            </td>
                             <td align="left" class="p-0">
                                 <a class="btn btn-md btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">عملیات</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"><i class="text-info"></i>پیوست سند</a>
-                                    <hr class="m-1">
                                     <a class="dropdown-item" href="{{route('dailyBook.edit',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}"><i class="  text-info"></i>ویرایش</a>
                                     <form method="POST" action="{{route('dailyBook.destroy',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}">
                                         {{ csrf_field() }}
@@ -193,6 +203,7 @@
         <!-- Modal: modalPoll -->
     </section>
     <!-- Modal: modalPoll -->
+
 @endsection
 
 @section('javaScript')

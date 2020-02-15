@@ -13,10 +13,10 @@
         </div>
         <div class="card-body">
             @if($entity->id)
-                <form action="{{route('dailyBook.update', $entity->id)}}" method="POST">
+                <form action="{{route('dailyBook.update', $entity->id)}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                     @method('PATCH')
                     @else
-                        <form method="POST" action="{{ route('dailyBook.store') }}">
+                        <form method="POST" action="{{ route('dailyBook.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
                             @endif
                             @csrf
                             <div class="row">
@@ -91,6 +91,23 @@
                                                                 </label>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group form-group-sm col-sm-2"></div>
+                                                        <div class="form-group form-group-sm col-sm-6">
+                                                            <label for="description" class="control-label">
+                                                                آپلود سند
+                                                            </label>
+                                                            <input type="file" name="file" class="btn btn-block mt-3">
+                                                            <input type="hidden" name="attachFile" value="@if($entity->id > 0) {{$entity->attachFile}} @else {{ old('attachFile') }} @endif">
+                                                        </div>
+                                                        @if($entity->attachFile != null)
+                                                        <div class="form-group form-group-sm col-sm-2">
+                                                            <a type="button" class="btn btn-outline-primary waves-effect mt-5" href="{{Storage::url($entity->attachFile)}}" target="_blank">دانلود فایل</a>
+                                                            </a>
+                                                        </div>
+                                                        @endif
+
                                                     </div>
                                                     <div class="row">
                                                         <div class="form-group form-group-sm col-sm-2"></div>
