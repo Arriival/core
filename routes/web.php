@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
+
 
 //home
 Route::resource('home', 'ActionController');
@@ -52,9 +53,12 @@ Route::prefix('topic')->group(function () {
 });
 Route::resource('topic', 'TopicController');
 
+
+Route::prefix('dailyBook')->group(function () {
+    Route::get('report', 'DailyBookController@getReport')->name('dailyBook.report');
+});
 Route::resource('dailyBook', 'DailyBookController');
 
-Route::resource('file', 'FileUtilController');
 
 
 

@@ -321,3 +321,13 @@ td {
 .ltr {
     direction: ltr;
 }
+
+input.login-field {
+    border-right: solid 3px #007bff;
+    border-left: solid 3px #007bff;
+}
+input.login-field:focus{
+    box-shadow: none;
+    border: none;
+    border-bottom: solid 2px #007bff;
+}

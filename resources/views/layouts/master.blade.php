@@ -19,20 +19,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="/dist/js/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="{{ asset('/dist/js/plugins/jquery/jquery-3.4.1.min.js') }}"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
     <!-- Bootstrap 4 -->
 {{--<script src="/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>--}}
 <!-- AdminLTE App -->
-    <script src="/dist/js/adminlte.min.js"></script>
-    <script src="/dist/js/headContnet.js"></script>
+    <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ asset('/dist/js/headContnet.js') }}"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="/dist/js/mdb.min.js"></script>
-    <script src="/dist/js/icheck.js"></script>
-    <script src="/dist/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/dist/js/mdb.min.js') }}"></script>
+    <script src="{{ asset('/dist/js/icheck.js') }}"></script>
+    <script src="{{ asset('/dist/js/jquery-confirm.min.js') }}"></script>
     <!-- include the script -->
-    <script src="/dist/js/alertify.min.js"></script>
+    <script src="{{ asset('/dist/js/alertify.min.js') }}"></script>
 
     <!-- persianDatePicker -->
     <script src="/dist/js/persianDatePicker/persian-date-0.1.8.min.js"></script>
@@ -42,20 +42,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="/dist/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href=" {{ asset('/dist/fonts/font-awesome/css/font-awesome.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/dist/css/adminlte.css">
+    <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.css') }}">
     <!-- bootstrap rtl -->
-    <link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="{{ asset('/dist/css/bootstrap-rtl.min.css') }}">
     <!-- template rtl version -->
-    <link rel="stylesheet" href="/dist/css/custom-style.css">
+    <link rel="stylesheet" href="{{ asset('/dist/css/custom-style.css') }}">
     <!-- Material Design Bootstrap -->
-    <link href="/dist/css/mdb.css" rel="stylesheet">
-    <link href="/dist/css/skins/square/_all.css" rel="stylesheet">
-    <link href="/dist/css/jquery-confirm.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/dist/css/alertify.min.css"/>
-    <link rel="stylesheet" href="/dist/css/themes/default.css"/>
-    <link rel="stylesheet" href="/dist/css/persianDatePicker/persian-datepicker-0.4.5.min.css"/>
+    <link href="{{ asset('/dist/css/mdb.css') }}" rel="stylesheet">
+    <link href="{{ asset('/dist/css/skins/square/_all.css') }}" rel="stylesheet">
+    <link href="{{ asset('/dist/css/jquery-confirm.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/dist/css/alertify.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/dist/css/themes/default.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/dist/css/persianDatePicker/persian-datepicker-0.4.5.min.css') }}"/>
 
 
 </head>
@@ -210,11 +210,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 <script>
+
+
     $(document).ready(function() {
         $(".date").pDatepicker({
             observer: true,
             format: 'YYYY/MM/DD'
         });
+
+        $('.mdb-select').materialSelect();
+
+
+
     });
 
     $('.deleteEntity').click(function (e) {

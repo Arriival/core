@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\BasePerson;
 use App\User;
-use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

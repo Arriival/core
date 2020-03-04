@@ -19,7 +19,7 @@
         </div>
         <div class="card-body">
             <div class="row mt-3">
-                <table id="grid" class="table table-striped" cellspacing="0" width="100%">
+                <table id="grid" class="table table-striped table-sm" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th class="col-sm-1">ردیف
@@ -42,7 +42,7 @@
                             <td>{{$item->title}}</td>
                             <td>{{$item->description}}</td>
                             <td align="left">
-                                <a class="btn btn-md btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                <a class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">عملیات</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{route('topic.edit', ["id"=>$item->id, "subject"=>$subject->id])}}"><i class="  text-info"></i>ویرایش</a>

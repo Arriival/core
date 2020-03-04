@@ -4,16 +4,35 @@
         <div class="card-header">
             <h3 class="card-title">دفتر روزنامه
             </h3>
-            <div class="card-tools">
-                <button type="button" class="btn btn-app" data-toggle="modal" data-target="#reportModal">
-                    <i class="fa fa-print text-warning"></i>چاپ
-                </button>
-                <button type="button" class="btn btn-app" data-toggle="modal" data-target="#searchModal">
-                    <i class="fa fa-search text-info"></i>جستجو
-                </button>
-                <a class="btn btn-app" href="{{route('dailyBook.create')}}">
-                    <i class="fa fa-plus text-success"></i>ثبت
-                </a>
+            <div class="card-tools row">
+                <div class="col-sm-3 ml-2">
+                    <form action="{{route('dailyBook.report')}}" method="GET" target="_blank" >
+                        <input  id="subjectRep"     name="subject"          type="hidden" class="search" value="{{ $request->subject}}">
+                        <input  id="topicRep"       name="topic"            type="hidden" class="search" value="{{ $request->topic}}">
+                        <input  id="fromDateRep"    name="fromDate"         type="hidden" class="search" value="{{ $request->fromDate}}">
+                        <input  id="toDateRep"      name="toDate"           type="hidden" class="search" value="{{ $request->toDate}}">
+                        <input  id="amountFromRep"  name="amountFrom"       type="hidden" class="search" value="{{ $request->amountFrom}}">
+                        <input  id="toDateRep"      name="amountTo"         type="hidden" class="search" value="{{ $request->amountTo}}">
+                        <input  id="codeRep"        name="code"             type="hidden" class="search" value="{{ $request->code}}">
+                        <input  id="docNumberRep"   name="documentNumber"   type="hidden" class="search" value="{{ $request->documentNumber}}">
+                        <button type="submit" class="btn btn-app" data-toggle="modal" data-target="#reportModal">
+                            <i class="fa fa-print text-warning"></i>چاپ
+                        </button>
+                    </form>
+                </div>
+                <div class="col-sm-3 ml-4">
+                    <button type="button" class="btn btn-app" data-toggle="modal" data-target="#searchModal">
+                        <i class="fa fa-search text-info"></i>جستجو
+                    </button>
+                </div>
+                <div class="col-sm-3 ml-0">
+                    <a class="btn btn-app" href="{{route('dailyBook.create')}}">
+                        <i class="fa fa-plus text-success"></i>ثبت
+                    </a>
+                </div>
+
+
+
             </div>
         </div>
         <div class="card-body">
@@ -25,18 +44,18 @@
                     <span class="col-sm-6 ">
                         @if($totalRemaining < 0)
                             <span class="text-danger persianNumber">
-                                    {{$totalRemaining}}
+                                    {{number_format(str_replace('-', '', $totalRemaining))}} -
                                 </span>
                         @else
                             <span class="ltr persianNumber">
-                                    {{$totalRemaining}}
+                                     {{number_format($totalRemaining)}}
                                 </span>
                         @endif
                     </span>
                 </div>
             </div>
             <div class="row mt-3">
-                <table id="grid" class="table table-striped" cellspacing="0" width="100%">
+                <table id="grid" class="table table-striped table-sm" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th>ردیف
@@ -87,9 +106,15 @@
                                 {{$item->description}}
                             </td>
                             <td class="ltr">
-                                <span class="persianNumber">
-                                {{$item->amount}}
+                                @if($item->amount < 0)
+                                    <span class="text-danger persianNumber">
+                                    {{number_format($item->amount)}}
                                 </span>
+                                @else
+                                    <span class="persianNumber">
+                                    {{number_format($item->amount)}}
+                                </span>
+                                @endif
                             </td>
                             <td class="ltr">
                                 @php
@@ -97,24 +122,24 @@
                                 @endphp
                                 @if($remaining < 0)
                                     <span class="text-danger persianNumber">
-                                    {{$remaining}}
+                                     {{number_format($remaining)}}
                                 </span>
                                 @else
                                     <span class="persianNumber">
-                                    {{$remaining}}
+                                    {{number_format($remaining)}}
                                 </span>
                                 @endif
                             </td>
                             <td>
                                 @if($item->attachFile != null)
-                                    <a class="dropdown-item" href="{{Storage::url($item->attachFile)}}" target="_blank">
-                                    <i class="fa fa-download text-lg text-success" style="cursor: pointer"></i>
+                                    <a  href="{{Storage::url($item->attachFile)}}" target="_blank">
+                                        <i class="fa fa-download text-lg text-success" style="cursor: pointer"></i>
                                     </a>
                                 @endif
 
                             </td>
                             <td align="left" class="p-0">
-                                <a class="btn btn-md btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                <a class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">عملیات</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{route('dailyBook.edit',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}"><i class="  text-info"></i>ویرایش</a>
@@ -130,7 +155,9 @@
                     </tbody>
                 </table>
             </div>
-            {{$result->appends(['subject'=>$subject, 'topic'=>$topic_id])->links()}}
+{{--            {{$result->appends(['subject'=>$subject, 'topic'=>$topic_id])->links()}}--}}
+            {{$result->appends(request()->all())->links()}}
+
 
         </div>
     </div>
@@ -155,21 +182,16 @@
                         <!--Body-->
                         <div class="modal-body">
                             <div class="row">
-                                {{--<input id="subject_search" name="subject" type="hidden" class="form-control search" placeholder="سرفصل" value="{{ $request->subject}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">--}}
-                                {{--<input id="topic_search" name="topic" type="hidden" class="form-control search" placeholder="موضوع" value="{{ $request->topic_id}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">--}}
-
                                 <div class="col-sm-6">
-                                    <select id="subject" name="subject" class="form-control search" onchange="getTopics(this.value)">
+                                    <select id="subject" name="subject" class="browser-default custom-select search" onchange="getTopics(this.value)" >
                                         <option value="-1">...</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
-                                    <select id="topic" name="topic" class="form-control search" {{--onchange="refreshData(this.value)"--}}>
+                                    <select id="topic" name="topic" class="browser-default custom-select search" {{--onchange="refreshData(this.value)"--}}>
                                         <option value="-1">...</option>
                                     </select>
                                 </div>
-
-
                                 <div class="md-form input-group input-group-sm mb-3 col-sm-3">
                                     <input id="fromDate" name="fromDate" type="text" class="form-control search" placeholder="از تاریخ" value="{{ $request->fromDate}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
@@ -186,7 +208,7 @@
                                     <input id="code" name="code" type="text" class="form-control search" placeholder="کد" value="{{ $request->code}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-6">
-                                    <input id="docNumber" name="documentNumber" type="text" class="form-control search" placeholder="شماره سند" value="{{ $request->documentNumber}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                    <input id="docNumber" name="documentNumber" type="text" class="form-control search" placeholder="شماره سند" value="{{ $request->documentNumber}}" aria-label="Sizing example input " aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                             </div>
                         </div>

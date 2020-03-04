@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\DailyBook;
+use App\Subject;
+use App\Topic;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -11,51 +14,12 @@ use PHPJasper\PHPJasper;
 
 class DailyBookController extends Controller
 {
+
+
     public function index(Request $request)
     {
-
-/*
-        $input = __DIR__ . '/php.jasper';
-        $output = __DIR__;
-        $options = [
-            'format' => ['pdf']
-        ];
-        $jasper = new PHPJasper;
-        $jasper->process(
-            $input,
-            $output,
-            $options
-        )->execute();*/
-
-
-        $query = DB::table('daily_books');
-        if ($request->has('fromDate') && !is_null($request->fromDate)) {
-            $query->where('date', '>=', $request->fromDate);
-        }
-        if ($request->has('toDate') && !is_null($request->toDate)) {
-            $query->where('date', '<=', $request->toDate);
-        }
-
-        if ($request->has('amountFrom') && !is_null($request->amountFrom)) {
-            $query->where('amount', '>=', $request->amountFrom);
-        }
-        if ($request->has('amountTo') && !is_null($request->amountTo)) {
-            $query->where('amount', '<=', $request->amountTo);
-        }
-        if ($request->has('code') && !is_null($request->code)) {
-            $query->where('code', $request->code);
-        }
-        if ($request->has('documentNumber') && !is_null($request->documentNumber)) {
-            $query->where('document_number', $request->documentNumber);
-        }
-//        if ($request->has('topic') && !is_null($request->topic)) {
-        $query->where('topic_id', $request->topic);
-//        }
-
-        $query->where('user_id', Auth::user()->id);
-
-        $result = $query->orderBy('date', 'desc')->paginate(15);
-
+        $query = $this->query($request);
+        $result = $query->orderBy('date', 'desc')->paginate(20);
         $totalRemaining = $this->calculateRemaining($request->topic);
         $data = ['result' => $result, 'subject' => $request->subject, 'topic_id' => $request->topic, 'totalRemaining' => $totalRemaining, 'request' => $request];
         return view('dailyBook.Grid', $data);
@@ -141,8 +105,82 @@ class DailyBookController extends Controller
         return $request;
     }
 
+
+    public function getReport(Request $request)
+    {
+
+        $query = $this->query($request);
+        $result = $query->orderBy('date', 'desc')->get();
+        $data = ['result' => $result, 'subject' => $request->subject, 'topic_id' => $request->topic, 'request' => $request];
+        return view('dailyBook.Report', $data);
+
+        /* $subject = Subject::find($request->subject);
+         $topic = Topic::find($request->topic);
+         $param = $request->all() + ['currentDate' => Verta::create()->format('Y/n/j')];
+         if ($subject != null) {
+             $param = $param + ['subjectTitle' => $subject->title];
+         }
+         if ($topic != null) {
+             $param = $param + ['topicTitle' => $topic->title];
+
+         }
+         $jasper = new PHPJasper;
+         $input = base_path() . '/resources/report/dailyBook/dailyBookReport.jasper';
+         $output = base_path() . '/storage/app/local';
+         $options = [
+             'format' => ['html'],
+             'params' => $param,
+             'db_connection' => [
+                 'driver' => 'mysql',
+                 'username' => 'root',
+                 'host' => '127.0.0.1',
+                 'database' => 'core',
+                 'port' => '3306'
+             ]
+         ];
+         $jasper->process(
+             $input,
+             $output,
+             $options
+         )->execute();
+         $file = base_path() . '/storage/app/local/dailyBookReport.html';
+         return response()->download($file, 'report');*/
+    }
+
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function query(Request $request): \Illuminate\Database\Query\Builder
+    {
+        $query = DB::table('daily_books');
+        if ($request->has('fromDate') && !is_null($request->fromDate)) {
+            $query->where('date', '>=', $request->fromDate);
+        }
+        if ($request->has('toDate') && !is_null($request->toDate)) {
+            $query->where('date', '<=', $request->toDate);
+        }
+
+        if ($request->has('amountFrom') && !is_null($request->amountFrom)) {
+            $query->where('amount', '>=', $request->amountFrom);
+        }
+        if ($request->has('amountTo') && !is_null($request->amountTo)) {
+            $query->where('amount', '<=', $request->amountTo);
+        }
+        if ($request->has('code') && !is_null($request->code)) {
+            $query->where('code', $request->code);
+        }
+        if ($request->has('documentNumber') && !is_null($request->documentNumber)) {
+            $query->where('document_number', $request->documentNumber);
+        }
+        $query->where('topic_id', $request->topic);
+
+        $query->where('user_id', Auth::user()->id);
+        return $query;
     }
 }

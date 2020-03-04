@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dailyBookReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2e7a028-4a1c-413b-b2ef-e7b683091b37">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mySql"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -14,8 +14,20 @@
 	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="currentDate" class="java.lang.String"/>
+	<parameter name="subject" class="java.lang.String"/>
+	<parameter name="topic" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="code" class="java.lang.String"/>
+	<parameter name="documentNumber" class="java.lang.String"/>
+	<parameter name="amountFrom" class="java.lang.String"/>
+	<parameter name="amountTo" class="java.lang.String"/>
+	<parameter name="subjectTitle" class="java.lang.String"/>
+	<parameter name="topicTitle" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select * from daily_books]]>
+		<![CDATA[SELECT	daily_books.* FROM 	daily_books
+]]>
 	</queryString>
 	<field name="id" class="java.math.BigInteger">
 		<property name="com.jaspersoft.studio.field.label" value="id"/>
@@ -35,6 +47,10 @@
 	</field>
 	<field name="document_number" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="document_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="daily_books"/>
+	</field>
+	<field name="attachFile" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="attachFile"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="daily_books"/>
 	</field>
 	<field name="amount" class="java.lang.Double">
@@ -57,10 +73,6 @@
 		<property name="com.jaspersoft.studio.field.label" value="updated_at"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="daily_books"/>
 	</field>
-	<field name="attachFile" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="attachFile"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="daily_books"/>
-	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -69,21 +81,17 @@
 			<rectangle radius="8">
 				<reportElement x="-10" y="0" width="569" height="140" uuid="7437466c-3227-4fbd-9648-c62666fdc83f"/>
 			</rectangle>
-			<image>
-				<reportElement x="460" y="10" width="84" height="90" uuid="be400422-6eb3-4229-967d-6d94aaf98e2c"/>
-				<imageExpression><![CDATA["logo.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="119" y="10" width="316" height="30" uuid="22c38b76-4e7a-49b7-bf95-3e772d468313"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Titr" size="19" isBold="true"/>
+					<font fontName="B Titr" size="22" isBold="true"/>
 				</textElement>
 				<text><![CDATA[صنایع تولیدی هادی سیم]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="119" y="40" width="316" height="30" uuid="7f603f22-08c3-4e63-b62e-105003ea9f23"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Titr" size="13" isBold="false"/>
+					<font fontName="B Titr" size="15" isBold="true"/>
 				</textElement>
 				<text><![CDATA[تولیدکننده انواع سیم های برق قابل انعطاف]]></text>
 			</staticText>
@@ -92,19 +100,28 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="B Traffic" size="13" isBold="false"/>
 				</textElement>
-				<text><![CDATA[ دارنده نشان استاندارد ملی ایران و ISO 9001 ]]></text>
+				<text><![CDATA[ دارنده نشان استاندارد ملی ایران و ISO 9001]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="90" y="10" width="70" height="30" uuid="bd32a2f6-97ba-4cec-ac17-54b31ccd8672"/>
+				<reportElement x="59" y="21" width="60" height="20" uuid="bd32a2f6-97ba-4cec-ac17-54b31ccd8672"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Nazanin" size="14" isBold="true"/>
+					<font fontName="B Nazanin" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[تاریخ صدور :]]></text>
 			</staticText>
-			<textField pattern="MMMMM dd, yyyy">
-				<reportElement x="-5" y="10" width="115" height="30" uuid="39de43a0-925f-4b0d-87a3-b6233a27c3eb"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			<textField>
+				<reportElement x="-7" y="21" width="77" height="20" uuid="ab45577d-688b-4257-afe1-2a475c49a47c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{currentDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="100" width="525" height="30" uuid="4e7476e8-c3f7-480f-b43d-deb57343491f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{subjectTitle} + " - " + $P{topicTitle}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -204,9 +221,9 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToTallestObject" x="169" y="0" width="206" height="30" uuid="0349c856-422f-424f-9eb0-a13f6e2da722">
+				<reportElement stretchType="RelativeToTallestObject" x="169" y="0" width="206" height="20" uuid="0349c856-422f-424f-9eb0-a13f6e2da722">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b587206-fe78-4df0-b435-b5821c3cf199"/>
 				</reportElement>
 				<box padding="5">
@@ -216,12 +233,12 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Nazanin" isBold="true"/>
+					<font fontName="B Nazanin" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,###.###">
-				<reportElement stretchType="RelativeToTallestObject" x="81" y="0" width="88" height="30" uuid="cfdf5a33-a67f-4435-8f4d-1b4caca8e3fc">
+				<reportElement stretchType="RelativeToTallestObject" x="81" y="0" width="88" height="20" uuid="cfdf5a33-a67f-4435-8f4d-1b4caca8e3fc">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23292dad-c946-4e60-8fdd-e4cda3f1b126"/>
 				</reportElement>
 				<box>
@@ -231,12 +248,12 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Nazanin" size="12" isBold="true"/>
+					<font fontName="B Nazanin" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,###.###">
-				<reportElement stretchType="RelativeToTallestObject" x="-7" y="0" width="88" height="30" uuid="df96fa5a-a049-4b24-9650-a702abcd83ea">
+				<reportElement stretchType="RelativeToTallestObject" x="-7" y="0" width="88" height="20" uuid="df96fa5a-a049-4b24-9650-a702abcd83ea">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23292dad-c946-4e60-8fdd-e4cda3f1b126"/>
 				</reportElement>
 				<box>
@@ -246,12 +263,12 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Nazanin" size="12" isBold="true"/>
+					<font fontName="B Nazanin" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToTallestObject" x="375" y="0" width="60" height="30" uuid="1874d080-9088-4c89-9b39-37db767b0236">
+				<reportElement stretchType="RelativeToTallestObject" x="375" y="0" width="60" height="20" uuid="1874d080-9088-4c89-9b39-37db767b0236">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bade668c-e8f8-44ca-a421-8122640b0226"/>
 				</reportElement>
 				<box>
@@ -261,12 +278,12 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Nazanin" size="12" isBold="true"/>
+					<font fontName="B Nazanin" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{document_number}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToTallestObject" x="435" y="0" width="60" height="30" uuid="96345afb-a97a-4233-8c2f-0a49d176a71e">
+				<reportElement stretchType="RelativeToTallestObject" x="435" y="0" width="60" height="20" uuid="96345afb-a97a-4233-8c2f-0a49d176a71e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="49f996e6-d401-4316-9a4e-84ac6c57e90e"/>
 				</reportElement>
 				<box>
@@ -276,12 +293,12 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Nazanin" size="12" isBold="true"/>
+					<font fontName="B Nazanin" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToTallestObject" x="495" y="0" width="40" height="30" uuid="e00a96c6-d054-4c5e-b8e9-8cd937edbd09">
+				<reportElement stretchType="RelativeToTallestObject" x="495" y="0" width="40" height="20" uuid="e00a96c6-d054-4c5e-b8e9-8cd937edbd09">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="92661128-9319-4a35-ad9e-2fdc1fec9e6d"/>
 				</reportElement>
 				<box>
@@ -291,12 +308,12 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Nazanin" size="12" isBold="true"/>
+					<font fontName="B Nazanin" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToTallestObject" x="535" y="0" width="24" height="30" uuid="a212aba2-f13d-4e2a-ae11-db1677fdf933"/>
+				<reportElement stretchType="RelativeToTallestObject" x="535" y="0" width="24" height="20" uuid="a212aba2-f13d-4e2a-ae11-db1677fdf933"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -304,7 +321,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="B Nazanin" size="12" isBold="true"/>
+					<font fontName="B Nazanin" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
