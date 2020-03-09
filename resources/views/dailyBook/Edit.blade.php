@@ -31,7 +31,7 @@
                                                             <label for="subject" class="control-label">
                                                                 سرفصل
                                                             </label>
-                                                            <span class="validation-error">@error('subject') {{$message}} @enderror</span>
+                                                            <span class="validation-error">@error('subject'){{$message}} @enderror</span>
                                                             <select id="subject" name="subject" class="form-control " onchange="getTopics(this.value)">
                                                                 <option value="-1">...</option>
                                                             </select>
@@ -40,7 +40,7 @@
                                                             <label for="topic" class="control-label">
                                                                 موضوع
                                                             </label>
-                                                            <span class="validation-error">@error('topic_id') {{$message}} @enderror</span>
+                                                            <span class="validation-error">@error('topic_id'){{$message}} @enderror</span>
                                                             <select id="topic" name="topic_id" class="form-control ">
                                                                 <option value="-1">...</option>
                                                             </select>
@@ -52,33 +52,33 @@
                                                             <label for="date" class="control-label">
                                                                 تاریخ
                                                             </label>
-                                                            <span class="validation-error">@error('date') {{$message}} @enderror</span>
-                                                            <input id="date" name="date" type="text" class="form-control required date text-center" value="@if($entity->id > 0) {{$entity->date}} @else {{ old('date') }} @endif">
+                                                            <span class="validation-error">@error('date'){{$message}} @enderror</span>
+                                                            <input id="date" name="date" type="text" class="form-control required persianCalender persianNumber text-center" value="@if($entity->id > 0){{$entity->date}}@else{{ old('date') }}@endif">
                                                         </div>
                                                         <div class="form-group form-group-sm col-sm-2">
                                                             <label for="document_number" class="control-label">
                                                                 شماره سند
                                                             </label>
-                                                            <span class="validation-error">@error('document_number') {{$message}} @enderror</span>
-                                                            <input id="document_number" name="document_number" type="text" class="form-control text-center" value="@if($entity->id > 0) {{$entity->document_number}} @else {{ old('document_number') }} @endif">
+                                                            <span class="validation-error">@error('document_number'){{$message}} @enderror</span>
+                                                            <input id="document_number" name="document_number" type="text" class="form-control text-center" value="@if($entity->id > 0){{$entity->document_number}}@else{{ old('document_number') }}@endif">
                                                         </div>
                                                         <div class="form-group form-group-sm col-sm-2">
                                                             <label for="code" class="control-label">
                                                                 کد
                                                             </label>
-                                                            <span class="validation-error">@error('code') {{$message}} @enderror</span>
-                                                            <input id="code" name="code" type="text" class="form-control text-center" value="@if($entity->id > 0) {{$entity->code}} @else {{ old('code') }} @endif ">
+                                                            <span class="validation-error">@error('code'){{$message}} @enderror</span>
+                                                            <input id="code" name="code" type="text" class="form-control text-center" value="@if($entity->id > 0){{$entity->code}}@else{{ old('code') }}@endif">
                                                         </div>
                                                         <div class="form-group form-group-sm col-sm-2">
                                                             <label for="date" class="control-label">
                                                                 مبلغ
                                                             </label>
-                                                            <span class="validation-error">@error('amount') {{$message}} @enderror</span>
-                                                            <input id="amount" name="amount" type="text" class="form-control text-center required" style="direction: ltr" value="@if($entity->id > 0) {{$entity->amount}} {{--@if($entity->amount <0 ) {{$entity->amount * -1}} @else {{$entity->amount}} @endif--}} @else {{ old('amount') }} @endif ">
+                                                            <span class="validation-error">@error('amount'){{$message}} @enderror</span>
+                                                            <input id="amount" name="amount" type="text" class="form-control text-center required persianNumber" style="direction: ltr" value="@if($entity->id > 0){{$entity->amount}}{{--@if($entity->amount <0 ){{$entity->amount * -1}} @else {{$entity->amount}} @endif--}}@else{{ old('amount') }}@endif">
                                                         </div>
                                                         <div class="form-group form-group-sm col-sm-2 mt-4">
                                                             <div class="row">
-                                                                <input id="talab" name="amountType" type="radio" class="form-control text-center required" value="1" @if($entity->id > 0 && $entity->amount >= 0 || $entity->id == null)  checked @else {{ old('amountType') }} @endif>
+                                                                <input id="talab" name="amountType" type="radio" class="form-control text-center required" value="1" @if($entity->id > 0 && $entity->amount >= 0 || $entity->id == null)  checked @else{{ old('amountType') }}@endif>
                                                                 <label for="talab" class="control-label text-success mr-2">
                                                                     طلبکار +
                                                                 </label>
@@ -99,13 +99,13 @@
                                                                 آپلود سند
                                                             </label>
                                                             <input type="file" name="file" class="btn btn-block mt-3">
-                                                            <input type="hidden" name="attachFile" value="@if($entity->id > 0) {{$entity->attachFile}} @else {{ old('attachFile') }} @endif">
+                                                            <input type="hidden" name="attachFile" value="@if($entity->id > 0){{$entity->attachFile}} @else {{ old('attachFile') }} @endif">
                                                         </div>
                                                         @if($entity->attachFile != null)
-                                                        <div class="form-group form-group-sm col-sm-2">
-                                                            <a type="button" class="btn btn-outline-primary waves-effect mt-5" href="{{Storage::url($entity->attachFile)}}" target="_blank">دانلود فایل</a>
-                                                            </a>
-                                                        </div>
+                                                            <div class="form-group form-group-sm col-sm-2">
+                                                                <a type="button" class="btn btn-outline-primary waves-effect mt-5" href="{{Storage::url($entity->attachFile)}}" target="_blank">دانلود فایل</a>
+                                                                </a>
+                                                            </div>
                                                         @endif
 
                                                     </div>
@@ -115,8 +115,8 @@
                                                             <label for="description" class="control-label">
                                                                 شرح
                                                             </label>
-                                                            <span class="validation-error">@error('description') {{$message}} @enderror</span>
-                                                            <textarea id="description" class="form-control @error('password') is-invalid @enderror" name="description">@if($entity->id > 0) {{$entity->description}} @else {{ old('description') }} @endif</textarea>
+                                                            <span class="validation-error">@error('description'){{$message}}@enderror</span>
+                                                            <textarea id="description" class="form-control @error('password') is-invalid @enderror" name="description">@if($entity->id > 0){{$entity->description}}@else {{ old('description') }} @endif</textarea>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -35,7 +35,7 @@
                                                     تاریخ
                                                 </label>
                                                 <span class="validation-error">@error('date') {{$message}} @enderror</span>
-                                                <input id="date" name="date" type="text" class="form-control required date text-center" value= "@if($note->id > 0) {{$note->date}} @else {{ old('date') }} @endif ">
+                                                <input id="date" name="date" type="text" class="form-control required persianCalender text-center persianNumber" value= "@if($note->id > 0) {{$note->date}} @else {{ old('date') }} @endif ">
                                             </div>
                                         </div>
                                         <div class="row">

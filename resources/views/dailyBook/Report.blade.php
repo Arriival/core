@@ -65,9 +65,9 @@
                     </th>
                     <th class=""> شرح
                     </th>
-                    <th class="text-left">بدهکار/بستانکار
+                    <th>بدهکار/بستانکار
                     </th>
-                    <th class="text-left">مانده
+                    <th>مانده
                     </th>
                 </tr>
                 </thead>

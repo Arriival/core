@@ -33,14 +33,14 @@
                                                                 عنوان
                                                             </label>
                                                             <span class="validation-error">@error('title') {{$message}} @enderror</span>
-                                                            <input id="title" name="title" type="text" class="form-control required" value="@if($entity->id > 0) {{$entity->title}} @else {{ old('title') }} @endif">
+                                                            <input id="title" name="title" type="text" class="form-control required" value="@if($entity->id > 0){{$entity->title}}@else{{ old('title') }}@endif">
                                                         </div>
                                                         <div class="form-group form-group-sm col-sm-2">
                                                             <label for="date" class="control-label">
                                                                 کد
                                                             </label>
                                                             <span class="validation-error">@error('code') {{$message}} @enderror</span>
-                                                            <input id="code" name="code" type="text" class="form-control text-center" value="@if($entity->id > 0) {{$entity->code}} @else {{ old('code') }} @endif ">
+                                                            <input id="code" name="code" type="text" class="form-control text-center" value="@if($entity->id > 0){{$entity->code}}@else{{ old('code') }}@endif ">
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -50,7 +50,7 @@
                                                                 توضیحات
                                                             </label>
                                                             <span class="validation-error">@error('description') {{$message}} @enderror</span>
-                                                            <textarea id="description" class="form-control @error('password') is-invalid @enderror" name="description">@if($entity->id > 0) {{$entity->description}} @else {{ old('description') }} @endif</textarea>
+                                                            <textarea id="description" class="form-control @error('password') is-invalid @enderror" name="description">@if($entity->id > 0){{$entity->description}}@else{{ old('description') }}@endif</textarea>
                                                         </div>
                                                     </div>
                                                 </div>

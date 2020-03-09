@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\DailyBook;
-use App\Subject;
-use App\Topic;
-use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use PHPJasper\PHPJasper;
 
 class DailyBookController extends Controller
 {
@@ -172,8 +168,8 @@ class DailyBookController extends Controller
         if ($request->has('amountTo') && !is_null($request->amountTo)) {
             $query->where('amount', '<=', $request->amountTo);
         }
-        if ($request->has('code') && !is_null($request->code)) {
-            $query->where('code', $request->code);
+        if ($request->has('searchCode') && !is_null($request->searchCode)) {
+            $query->where('code', $request->searchCode);
         }
         if ($request->has('documentNumber') && !is_null($request->documentNumber)) {
             $query->where('document_number', $request->documentNumber);
