@@ -17,10 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::POST('/login', function (Request $request) {
+Route::POST('/hrm/rest/usermanagement/login', function (Request $request) {
+    $bodyContent = $request->getContent();
+    \Illuminate\Support\Facades\Log::alert($bodyContent);
     if ($request->username == "admin" and $request->password == "admin") {
         return "eyJpdiI6Ilg4MnRTTCs5REJwUldLa0VaUlh6cXc9PSIsInZhbHVlIjoiRnEySW";
-//        return "eee";
     }
 });
 Route::POST('/hrm/rest/education/courses', function (Request $request) {
@@ -28,16 +29,18 @@ Route::POST('/hrm/rest/education/courses', function (Request $request) {
     \Illuminate\Support\Facades\Log::alert($request->all());
     return 201;
 });
-Route::GET('hrm/rest/education/courses/{courseCode}/participants', function (Request $request, $courseCode) {
+Route::POST('/hrm/rest/bazresi/getPersonelList', function (Request $request) {
     class Person
     {
-
+//
     }
 
-    for ($i = 0; $i < 10; $i++) {
+    for ($i = 0; $i < 1; $i++) {
         $obj = new Person();
 //        $obj->personelCode = mt_rand(10000000, 99999999);
         $obj->nationalNumber = mt_rand(100000000, 999999999);
+        $obj->none = $request->get('username');
+        $obj->key = $request->get('key');
         $obj->firstName = "نام";
         $obj->lastName = "نام خانوادگی";
         $obj->fatherName = "پدر";
@@ -54,7 +57,7 @@ Route::GET('hrm/rest/education/courses/{courseCode}/participants', function (Req
         $obj->mahalMamuriat = "500";//mt_rand(10000000, 99999999);
         $obj->reshtehTahsili = 281; // mt_rand(10000000, 99999999);
         $obj->mahalEskan = 4;// mt_rand(1000, 9999);
-        $obj->code_dore = $courseCode;
+        $obj->code_dore = 123;
         $obj->jensiyat = mt_rand(1, 2);
         $obj->taahol = 1;
         $obj->daraje = 0;// mt_rand(1000, 9999);

@@ -6,15 +6,20 @@
             </h3>
             <div class="card-tools row">
                 <div class="col-sm-3 ml-2">
-                    <form action="{{route('dailyBook.report')}}" method="GET" target="_blank" >
-                        <input  id="subjectRep"     name="subject"          type="hidden" class="search" value="{{ $request->subject}}">
-                        <input  id="topicRep"       name="topic"            type="hidden" class="search" value="{{ $request->topic}}">
-                        <input  id="fromDateRep"    name="fromDate"         type="hidden" class="search" value="{{ $request->fromDate}}">
-                        <input  id="toDateRep"      name="toDate"           type="hidden" class="search" value="{{ $request->toDate}}">
-                        <input  id="amountFromRep"  name="amountFrom"       type="hidden" class="search" value="{{ $request->amountFrom}}">
-                        <input  id="toDateRep"      name="amountTo"         type="hidden" class="search" value="{{ $request->amountTo}}">
-                        <input  id="codeRep"        name="code"             type="hidden" class="search" value="{{ $request->code}}">
-                        <input  id="docNumberRep"   name="documentNumber"   type="hidden" class="search" value="{{ $request->documentNumber}}">
+                    <form action="{{route('dailyBook.report')}}" method="GET" target="_blank">
+                        <input id="subjectRep" name="subject" type="hidden" class="search"
+                               value="{{ $request->subject}}">
+                        <input id="topicRep" name="topic" type="hidden" class="search" value="{{ $request->topic}}">
+                        <input id="fromDateRep" name="fromDate" type="hidden" class="search"
+                               value="{{ $request->fromDate}}">
+                        <input id="toDateRep" name="toDate" type="hidden" class="search" value="{{ $request->toDate}}">
+                        <input id="amountFromRep" name="amountFrom" type="hidden" class="search"
+                               value="{{ $request->amountFrom}}">
+                        <input id="toDateRep" name="amountTo" type="hidden" class="search"
+                               value="{{ $request->amountTo}}">
+                        <input id="codeRep" name="code" type="hidden" class="search" value="{{ $request->code}}">
+                        <input id="docNumberRep" name="documentNumber" type="hidden" class="search"
+                               value="{{ $request->documentNumber}}">
                         <button type="submit" class="btn btn-app" data-toggle="modal" data-target="#reportModal">
                             <i class="fa fa-print text-warning"></i>چاپ
                         </button>
@@ -32,12 +37,12 @@
                 </div>
 
 
-
             </div>
         </div>
         <div class="card-body">
             <div class="row mt-5">
-                <div class="col-sm-5 mt-1 mr-5 p-2 " style="background-color: rgba(83,126,255,0.19); border-radius:8px; ">
+                <div class="col-sm-5 mt-1 mr-5 p-2 "
+                     style="background-color: rgba(83,126,255,0.19); border-radius:8px; ">
                     <span class="col-sm-6">
                         مانده کل :
                     </span>
@@ -132,21 +137,26 @@
                             </td>
                             <td>
                                 @if($item->attachFile != null)
-                                    <a  href="{{Storage::url($item->attachFile)}}" target="_blank">
+                                    <a href="{{Storage::url($item->attachFile)}}" target="_blank">
                                         <i class="fa fa-download text-lg text-success" style="cursor: pointer"></i>
                                     </a>
                                 @endif
 
                             </td>
                             <td align="left" class="p-0">
-                                <a class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                <a class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown"
+                                   aria-haspopup="true"
                                    aria-expanded="false">عملیات</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{route('dailyBook.edit',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}"><i class="  text-info"></i>ویرایش</a>
-                                    <form method="POST" action="{{route('dailyBook.destroy',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}">
+                                    <a class="dropdown-item"
+                                       href="{{route('dailyBook.edit',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}"><i
+                                            class="  text-info"></i>ویرایش</a>
+                                    <form method="POST"
+                                          action="{{route('dailyBook.destroy',["id"=>$item->id, "topic"=>$topic_id, "subject"=>$subject])}}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <input type="submit" class="dropdown-item deleteEntity" onsubmit="return confirmDelete()" value="حذف">
+                                        <input type="submit" class="dropdown-item deleteEntity"
+                                               onsubmit="return confirmDelete()" value="حذف">
                                     </form>
                                 </div>
                             </td>
@@ -155,7 +165,7 @@
                     </tbody>
                 </table>
             </div>
-{{--            {{$result->appends(['subject'=>$subject, 'topic'=>$topic_id])->links()}}--}}
+            {{--            {{$result->appends(['subject'=>$subject, 'topic'=>$topic_id])->links()}}--}}
             {{$result->appends(request()->all())->links()}}
 
 
@@ -169,12 +179,14 @@
         <div class="modal fade top" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true" data-backdrop="true" style="z-index: 99999 ">
             <form action="{{url('dailyBook')}}" method="GET">
-                <div class="modal-dialog modal-fluid modal-full-height modal-top modal-notify modal-info" role="document">
+                <div class="modal-dialog modal-fluid modal-full-height modal-top modal-notify modal-info"
+                     role="document">
                     <div class="modal-content">
                         <!--Header-->
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" class="white-text"><i class="fa fa-times text-white"></i></span>
+                                <span aria-hidden="true" class="white-text"><i
+                                        class="fa fa-times text-white"></i></span>
                             </button>
                             <p class="heading lead">جستجو</p>
                         </div>
@@ -183,32 +195,54 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <select id="subject" name="subject" class="browser-default custom-select search" onchange="getTopics(this.value)" >
+                                    <select id="subject" name="subject" class="browser-default custom-select search"
+                                            onchange="getTopics(this.value)">
                                         <option value="-1">...</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
-                                    <select id="topic" name="topic" class="browser-default custom-select search" {{--onchange="refreshData(this.value)"--}}>
+                                    <select id="topic" name="topic"
+                                            class="browser-default custom-select search" {{--onchange="refreshData(this.value)"--}}>
                                         <option value="-1">...</option>
                                     </select>
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3 col-sm-3">
-                                    <input id="fromDate" name="fromDate" type="text" class="form-control search persianCalender persianNumber" placeholder="از تاریخ" value="{{ $request->fromDate}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                    <input id="fromDate" name="fromDate" type="text"
+                                           class="form-control search persianCalender persianNumber"
+                                           placeholder="از تاریخ" value="{{ $request->fromDate}}"
+                                           aria-label="Sizing example input"
+                                           aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3 col-sm-3">
-                                    <input id="toDate" name="toDate" type="text" class="form-control search persianCalender persianNumber" placeholder="تا تاریخ" value="{{ $request->toDate}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                    <input id="toDate" name="toDate" type="text"
+                                           class="form-control search persianCalender persianNumber"
+                                           placeholder="تا تاریخ" value="{{ $request->toDate}}"
+                                           aria-label="Sizing example input"
+                                           aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-3">
-                                    <input id="amountFrom" name="amountFrom" type="text" class="form-control search" placeholder="مبلغ از" value="{{ $request->amountFrom}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                    <input id="amountFrom" name="amountFrom" type="text" class="form-control search"
+                                           placeholder="مبلغ از" value="{{ $request->amountFrom}}"
+                                           aria-label="Sizing example input"
+                                           aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-3">
-                                    <input id="amountTo" name="amountTo" type="text" class="form-control search" placeholder="مبلغ تا" value="{{ $request->amountTo}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                    <input id="amountTo" name="amountTo" type="text" class="form-control search"
+                                           placeholder="مبلغ تا" value="{{ $request->amountTo}}"
+                                           aria-label="Sizing example input"
+                                           aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-6">
-                                    <input id="code" name="searchCode" type="text" class="form-control search" placeholder="کد" value="{{ $request->searchCode}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-sm">
+                                    <input id="code" name="searchCode" type="text" class="form-control search"
+                                           placeholder="کد" value="{{ $request->searchCode}}"
+                                           aria-label="Sizing example input"
+                                           aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-6">
-                                    <input id="docNumber" name="documentNumber" type="text" class="form-control search" placeholder="شماره سند" value="{{ $request->documentNumber}}" aria-label="Sizing example input " aria-describedby="inputGroupMaterial-sizing-sm">
+                                    <input id="docNumber" name="documentNumber" type="text" class="form-control search"
+                                           placeholder="شماره سند" value="{{ $request->documentNumber}}"
+                                           aria-label="Sizing example input "
+                                           aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                             </div>
                         </div>
@@ -216,7 +250,8 @@
                         <!--Footer-->
                         <div class="modal-footer justify-content-center">
                             <input type="submit" class="btn btn-primary waves-effect waves-light" value="اعمال فیلتر">
-                            <a type="button" class="btn btn-outline-primary waves-effect" onclick="$('.search').val('')">پاک کردن</a>
+                            <a type="button" class="btn btn-outline-primary waves-effect"
+                               onclick="$('.search').val('')">پاک کردن</a>
                         </div>
                     </div>
                 </div>

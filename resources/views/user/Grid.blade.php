@@ -44,9 +44,9 @@
                             <td>{{$user->person->getFirstName()}}</td>
                             <td>{{$user->person->getLastName()}}</td>
                             <td>{{$user->username}}</td>
-                            <td>{{ $user->created_at->format('Y/m/d') }}</td>
-                            <td>{{ $user->updated_at->format('Y/m/d') }}</td>
-                            <td>{{ $user->updated_at->format('Y/m/d') }}</td>
+                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $user->updated_at }}</td>
+                            <td>{{--{{ $user->updated_at->format('Y/m/d') }}--}}</td>
                             <td><i class="fa fa-check-circle text-success fa-lg"></i></td>
                             <td align="left">
                                 <!-- Basic dropdown -->
