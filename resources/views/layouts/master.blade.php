@@ -137,7 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="@php echo \Illuminate\Support\Facades\Storage::url(Auth::user()->person->image);@endphp" class="img-circle elevation-2" style="height: 40px ; width: 40px">
+                        <img src=" {{asset(Storage::url(Auth::user()->person->image))}}" class="img-circle elevation-2" style="height: 40px ; width: 40px">
                     </div>
                     <div class="info">
                         <a href="" class="d-block">

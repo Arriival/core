@@ -19,7 +19,7 @@
                         <div class="card  card-primary card-outline grid-shadow">
                             <div class="card-body box-profile">
                                 <div class="text-center">
-                                    <img class="img-fluid z-depth-1 rounded-circle @if($person->isActive) active @else deActive @endif " src="@php echo \Illuminate\Support\Facades\Storage::url($person->image);@endphp" style="height: 150px ; width: 150px">
+                                    <img class="img-fluid z-depth-1 rounded-circle @if($person->isActive) active @else deActive @endif " src="{{asset(Storage::url($person->image))}}" style="height: 150px ; width: 150px">
                                 </div>
                                 <h3 class="profile-username text-center">{{$person->firstName . " " . $person->lastName}}</h3>
                                 <p class="text-muted text-center">مهندس نرم افزار</p>
