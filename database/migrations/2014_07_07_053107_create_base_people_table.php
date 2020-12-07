@@ -22,7 +22,7 @@ class CreateBasePeopleTable extends Migration
             $table->boolean('isActive');
             $table->string('email')->nullable();
             $table->string('phoneNumber')->nullable();
-            $table->binary('image')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

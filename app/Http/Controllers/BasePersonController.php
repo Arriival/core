@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BasePerson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BasePersonController extends Controller
 {
@@ -19,6 +20,7 @@ class BasePersonController extends Controller
         /*      $role = Role::create(['name' => 'writer']);
               $user=Auth::user();
               $user->assignRole('writer');*/
+
 
         $person = BasePerson::query();
 
@@ -72,7 +74,7 @@ class BasePersonController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function store(Request $request)
     {
@@ -80,9 +82,10 @@ class BasePersonController extends Controller
             'firstName' => 'required|max:1',
             'lastName' => 'required|max:1',
         ]);*/
+
         $this->validator($request);
 
-        BasePerson::create($request->all());
+        BasePerson::create($this->uploadFile($request, null)->all());
         return $this->index();
     }
 
@@ -119,18 +122,12 @@ class BasePersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $this->validator($request);
-        BasePerson::find($id)->update($request->request->all());
+        BasePerson::find($id)->update($this->uploadFile($request, $id)->all());
         return redirect(url('personnel'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $person = BasePerson::find($id)->delete();
@@ -176,6 +173,17 @@ class BasePersonController extends Controller
 
         return $this->validate($request, $rules, $customMessages);
 
+    }
+
+    public function uploadFile(Request $request, $id)
+    {
+        if ($request->hasFile('avatar')) {
+            if ($id != null) {
+                Storage::delete(BasePerson::find($id)->image);
+            }
+            $request->request->add(['image' => $request->file('avatar')->store('public/avatar')]);
+        }
+        return $request;
     }
 
 }

@@ -7,9 +7,9 @@
 
             <div class="card-tools">
                 @if($person->id)
-                <a class="btn btn-app" href="{{route('user.create', ['person'=>$person->id])}}">
-                    <i class="fa fa-user-plus text-warning"></i>ثبت کاربر
-                </a>
+                    <a class="btn btn-app" href="{{route('user.create', ['person'=>$person->id])}}">
+                        <i class="fa fa-user-plus text-warning"></i>ثبت کاربر
+                    </a>
                 @endif
                 <a class="btn btn-app" href="{{route('personnel.create')}}">
                     <i class="fa fa-plus text-success"></i>جدید
@@ -36,10 +36,10 @@
 
         <div class="card-body">
             @if($person->id)
-                <form action="{{route('personnel.update', $person->id)}}" method="POST">
+                <form action="{{route('personnel.update', $person->id)}}" method="POST" accept-charset="UTF-8"  enctype="multipart/form-data">
                     @method('PATCH')
                     @else
-                        <form action="{{route('personnel.store')}}" method="POST">
+                        <form action="{{route('personnel.store')}}" method="POST" enctype="multipart/form-data">
                             @endif
                             @csrf
                             <div class="row">
@@ -47,16 +47,14 @@
                                     <div class="card-body box-profile">
                                         <div class="row">
                                             <div class="col-sm-3 text-center">
-                                                <img class="img-fluid profile-user-img lg img-circle" src="../../dist/img/user8-128x128.jpg">
+                                                <img class="img-fluid profile-user-img lg img-circle" src="{{asset(Storage::url($person->image))}}" style="height: 200px ; width: 200px">
                                                 <div class="text-center mt-3">
                                                     <span id="imageName">---</span>
                                                 </div>
                                                 <div class="row">
-<!--                                                    --><?php
-//                                                    echo Form::open(array('url' => '/uploadfile','files'=>'true'));
-//                                                    echo Form::file('image');
-//                                                    ?>
-                                                    <a href="#" class="btn  btn-block mt-3"><b>آپلود عکس</b></a>
+                                                    {{--<a href="#" class="btn  btn-block mt-3" --}}{{--data-toggle="modal" data-target="#searchModal"--}}{{--><b>آپلود عکس</b></a>--}}
+                                                    <input type="file" name="avatar" class="btn btn-block mt-3">
+                                                    <input type="hidden" name="image" value="@if($person->id > 0) {{$person->image}} @else {{ old('image') }} @endif">
                                                 </div>
                                             </div>
                                             <fieldset class="col-sm-9 ">
@@ -220,5 +218,34 @@
             @endif
         </div>
     </div>
-    <!-- /.card -->
 @endsection
+
+{{--
+@section('searchBox')
+    <section>
+        <div class="modal fade top" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true" data-backdrop="true" style="z-index: 99999 ">
+            <div class="modal-dialog modal-fluid modal-full-height modal-top modal-notify modal-info" role="document">
+                <form method="POST" action="{{route('file.store')}}" accept-charset="UTF-8" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="white-text"><i class="fa fa-times text-white"></i></span>
+                            </button>
+                            <p class="heading lead">بارگذاری فایل</p>
+                        </div>
+                        <div class="modal-body">
+                            <input name="file" type="file" required>
+                            <input name="file" type="hidden" required>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <input type="submit" class="btn btn-primary waves-effect waves-light" value="بارگذاری">
+                            <a type="button" class="btn btn-outline-primary waves-effect">انصراف</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+@endsection--}}

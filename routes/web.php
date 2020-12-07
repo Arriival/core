@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
+
 
 //home
 Route::resource('home', 'ActionController');
@@ -36,5 +37,28 @@ Route::resource('user', 'UserController');
 //role
 Route::resource('role', 'RoleController');
 Route::resource('role.search', 'RoleController@search');
+
+
+Route::resource('note', 'NoteController');
+
+
+Route::prefix('subject')->group(function () {
+    Route::get('getAll', 'SubjectController@getAll')->name('subject.getAll');
+});
+Route::resource('subject', 'SubjectController');
+
+
+Route::prefix('topic')->group(function () {
+    Route::get('getAll/{id}', 'TopicController@getAll')->name('topic.getAll');
+});
+Route::resource('topic', 'TopicController');
+
+
+Route::prefix('dailyBook')->group(function () {
+    Route::get('report', 'DailyBookController@getReport')->name('dailyBook.report');
+});
+Route::resource('dailyBook', 'DailyBookController');
+
+
 
 

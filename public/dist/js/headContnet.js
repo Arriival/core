@@ -1,6 +1,6 @@
 $.ajaxSetup({
-    headers:{
-        'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
 
@@ -10,9 +10,7 @@ $(document).ready(function () {
         radioClass: 'iradio_square-blue',
         increaseArea: '20%' // optional
     });
-    $('.persianCalender').persianDatepicker({
-        format: 'YYYY/MM/DD',
-        autoClose:true
-    });
-    $('.persianCalender').val('');
+    initCalendarUtility();
 });
+
+
