@@ -17,15 +17,15 @@
                 <table id="grid" class="table table-striped table-sm" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th class="col-sm-1">ردیف
+                        <th>ردیف
                         </th>
-                        <th class="col-sm-1">کد
+                        <th>کد
                         </th>
-                        <th class="col-sm-3">عنوان سرفصل
+                        <th>عنوان سرفصل
                         </th>
-                        <th class="col-sm-6">توضیحات
+                        <th>توضیحات
                         </th>
-                        <th class="col-sm-1 text-left">عملیات
+                        <th class=" text-left">عملیات
                         </th>
                     </tr>
                     </thead>
@@ -37,16 +37,20 @@
                             <td>{{$item->title}}</td>
                             <td>{{$item->description}}</td>
                             <td align="left">
-                                <a class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                <a class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown"
+                                   aria-haspopup="true"
                                    aria-expanded="false">عملیات</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{route('topic.index', ["subject"=>$item->id])}}"><i class="  text-info"></i>موضوعات</a>
+                                    <a class="dropdown-item" href="{{route('topic.index', ["subject"=>$item->id])}}"><i
+                                            class="  text-info"></i>موضوعات</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{route('subject.edit', $item->id)}}"><i class="  text-info"></i>ویرایش</a>
+                                    <a class="dropdown-item" href="{{route('subject.edit', $item->id)}}"><i
+                                            class="  text-info"></i>ویرایش</a>
                                     <form method="POST" action="{{route('subject.destroy', $item->id)}}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <input type="submit" class="dropdown-item deleteEntity" onsubmit="return confirmDelete()" value="حذف">
+                                        <input type="submit" class="dropdown-item deleteEntity"
+                                               onsubmit="return confirmDelete()" value="حذف">
                                     </form>
                                 </div>
                             </td>
