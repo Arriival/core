@@ -17,15 +17,15 @@
                 <table id="grid" class="table table-striped" cellspacing="0" width="100%">
                     <thead >
                     <tr>
-                        <th class="col-sm-1">ردیف
+                        <th class="">ردیف
                         </th>
-                        <th class="col-sm-1" >تاریخ
+                        <th class="" >تاریخ
                         </th>
-                        <th class="col-sm-3">موضوع
+                        <th class="">موضوع
                         </th>
-                        <th class="col-sm-6">یادداشت
+                        <th class="">یادداشت
                         </th>
-                        <th class="col-sm-1 text-left">عملیات
+                        <th class=" text-left">عملیات
                         </th>
                     </tr>
                     </thead>
