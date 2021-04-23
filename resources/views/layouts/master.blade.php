@@ -53,13 +53,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('/dist/css/persianDatePicker/persian-datepicker-0.4.5.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/dist/scripts/PersiaCalender/CalenderCss.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/dist/scripts/PersiaCalender/calendar.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/dist/css/style.css') }}">
 
 
 
 </head>
 <body class="hold-transition sidebar-mini">
+<div class="spanner">
+    <div class="loader"></div>
+</div>
+<div class="wrapper ">
 
-<div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
         <!-- Left navbar links -->
@@ -155,7 +159,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- /.sidebar -->
     </aside>
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="background-color: rgba(169,169,169,0.19); min-height: calc(100vh - 57px)">
         <!-- Content Header (Page header) -->

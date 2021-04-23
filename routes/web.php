@@ -56,6 +56,7 @@ Route::resource('topic', 'TopicController');
 
 Route::prefix('dailyBook')->group(function () {
     Route::get('report', 'DailyBookController@getReport')->name('dailyBook.report');
+    Route::get('updateRemaining/{topicId}', 'DailyBookController@updateRemaining')->name('dailyBook.updateRemaining');
 });
 Route::resource('dailyBook', 'DailyBookController');
 

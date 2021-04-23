@@ -3,23 +3,33 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">دفتر روزنامه
+                &nbsp;
+                <span id="header-subject" class="font-small text-primary"></span>
+                <span id="header-topic" class="font-small text-primary"></span>
             </h3>
+
             <div class="card-tools row">
                 <div class="col-sm-3 ml-2">
                     <form action="{{route('dailyBook.report')}}" method="GET" target="_blank">
-                        <input id="subjectRep" name="subject" type="hidden" class="search"
-                               value="{{ $request->subject}}">
-                        <input id="topicRep" name="topic" type="hidden" class="search" value="{{ $request->topic}}">
+                        <input id="subjectTitle" name="subjectTitle" type="hidden" class=""
+                               value="{{$request->subjectTitle}}">
+                        <input id="topicTitle" name="topicTitle" type="hidden" class=""
+                               value="{{$request->topicTitle}}">
+                        <input id="subjectRep" name="subject" type="hidden" class=""
+                               value="{{$request->subject}}">
+                        <input id="topicRep" name="topic" type="hidden" class="" value="{{$request->topic}}">
                         <input id="fromDateRep" name="fromDate" type="hidden" class="search"
-                               value="{{ $request->fromDate}}">
-                        <input id="toDateRep" name="toDate" type="hidden" class="search" value="{{ $request->toDate}}">
+                               value="{{$request->fromDate}}">
+                        <input id="toDateRep" name="toDate" type="hidden" class="search" value="{{$request->toDate}}">
                         <input id="amountFromRep" name="amountFrom" type="hidden" class="search"
-                               value="{{ $request->amountFrom}}">
+                               value="{{$request->amountFrom}}">
                         <input id="toDateRep" name="amountTo" type="hidden" class="search"
-                               value="{{ $request->amountTo}}">
-                        <input id="codeRep" name="code" type="hidden" class="search" value="{{ $request->code}}">
+                               value="{{$request->amountTo}}">
+                        <input id="codeRep" name="code" type="hidden" class="search" value="{{$request->code}}">
                         <input id="docNumberRep" name="documentNumber" type="hidden" class="search"
-                               value="{{ $request->documentNumber}}">
+                               value="{{$request->documentNumber}}">
+                        <input id="descriptionRep" name="description" type="hidden" class="search"
+                               value="{{$request->description}}">
                         <button type="submit" class="btn btn-app" data-toggle="modal" data-target="#reportModal">
                             <i class="fa fa-print text-warning"></i>چاپ
                         </button>
@@ -35,8 +45,6 @@
                         <i class="fa fa-plus text-success"></i>ثبت
                     </a>
                 </div>
-
-
             </div>
         </div>
         <div class="card-body">
@@ -76,6 +84,11 @@
                         <th class="">بدهکار/بستانکار
                         </th>
                         <th class="">مانده
+                            @if($request->topic)
+                                <a onclick="updateRemaining({{$request->topic}})">
+                                    <i class="fa fa-refresh" style="cursor: pointer" title="بروزرسانی"></i>
+                                </a>
+                            @endif
                         </th>
                         <th class="">پیوست
                         </th>
@@ -122,16 +135,26 @@
                                 @endif
                             </td>
                             <td class="ltr">
-                                @php
+                                {{--@php
                                     $remaining = $remaining + $item->amount;
-                                @endphp
-                                @if($remaining < 0)
-                                    <span class="text-danger persianNumber">
+                                @endphp--}}
+                                {{-- @if($remaining < 0)
+                                     <span class="text-danger persianNumber">
+                                      {{number_format($remaining)}}
+                                 </span>
+                                 @else
+                                     <span class="persianNumber">
                                      {{number_format($remaining)}}
+                                 </span>
+                                 @endif--}}
+
+                                @if($item->remaining < 0)
+                                    <span class="text-danger persianNumber">
+                                    {{number_format($item->remaining)}}
                                 </span>
                                 @else
                                     <span class="persianNumber">
-                                    {{number_format($remaining)}}
+                                    {{number_format($item->remaining)}}
                                 </span>
                                 @endif
                             </td>
@@ -195,52 +218,58 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <select id="subject" name="subject" class="browser-default custom-select search"
+                                    <select id="subject" name="subject" class="browser-default custom-select"
                                             onchange="getTopics(this.value)">
                                         <option value="-1">...</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
                                     <select id="topic" name="topic"
-                                            class="browser-default custom-select search" {{--onchange="refreshData(this.value)"--}}>
+                                            class="browser-default custom-select" {{--onchange="refreshData(this.value)"--}}>
                                         <option value="-1">...</option>
                                     </select>
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3 col-sm-3">
                                     <input id="fromDate" name="fromDate" type="text"
                                            class="form-control search persianCalender persianNumber"
-                                           placeholder="از تاریخ" value="{{ $request->fromDate}}"
+                                           placeholder="از تاریخ" value="{{$request->fromDate}}"
                                            aria-label="Sizing example input"
                                            aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3 col-sm-3">
                                     <input id="toDate" name="toDate" type="text"
                                            class="form-control search persianCalender persianNumber"
-                                           placeholder="تا تاریخ" value="{{ $request->toDate}}"
+                                           placeholder="تا تاریخ" value="{{$request->toDate}}"
                                            aria-label="Sizing example input"
                                            aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-3">
                                     <input id="amountFrom" name="amountFrom" type="text" class="form-control search"
-                                           placeholder="مبلغ از" value="{{ $request->amountFrom}}"
+                                           placeholder="مبلغ از" value="{{$request->amountFrom}}"
                                            aria-label="Sizing example input"
                                            aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-3">
                                     <input id="amountTo" name="amountTo" type="text" class="form-control search"
-                                           placeholder="مبلغ تا" value="{{ $request->amountTo}}"
+                                           placeholder="مبلغ تا" value="{{$request->amountTo}}"
                                            aria-label="Sizing example input"
                                            aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-6">
                                     <input id="code" name="searchCode" type="text" class="form-control search"
-                                           placeholder="کد" value="{{ $request->searchCode}}"
+                                           placeholder="کد" value="{{$request->searchCode}}"
                                            aria-label="Sizing example input"
                                            aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
                                 <div class="md-form input-group input-group-sm mb-3  col-sm-6">
                                     <input id="docNumber" name="documentNumber" type="text" class="form-control search"
-                                           placeholder="شماره سند" value="{{ $request->documentNumber}}"
+                                           placeholder="شماره سند" value="{{$request->documentNumber}}"
+                                           aria-label="Sizing example input "
+                                           aria-describedby="inputGroupMaterial-sizing-sm">
+                                </div>
+                                <div class="md-form input-group input-group-sm mb-3  col-sm-12">
+                                    <input id="description" name="description" type="text" class="form-control search"
+                                           placeholder="شرح" value="{{$request->description}}"
                                            aria-label="Sizing example input "
                                            aria-describedby="inputGroupMaterial-sizing-sm">
                                 </div>
@@ -249,7 +278,8 @@
 
                         <!--Footer-->
                         <div class="modal-footer justify-content-center">
-                            <input type="submit" class="btn btn-primary waves-effect waves-light" value="اعمال فیلتر">
+                            <input id="btnSearch" type="submit" class="btn btn-primary waves-effect waves-light"
+                                   value="اعمال فیلتر">
                             <a type="button" class="btn btn-outline-primary waves-effect"
                                onclick="$('.search').val('')">پاک کردن</a>
                         </div>
@@ -265,7 +295,8 @@
 
 @section('javaScript')
 
-    {{--<script>--}}
+    {{--    <script>--}}
+
     $.ajax({
     url: '{{ route('subject.getAll') }}',
     type: 'GET',
@@ -274,9 +305,12 @@
     success: function (res) {
     $.each(res, function (key, val) {
     $("#subject").append(new Option(val.title, val.id));
+
     });
     @if($subject)
         $("#subject").val("{{$subject}}");
+        $("#header-subject").text($( "#subject option:selected" ).text() + ' / ');
+        $("#subjectTitle").val($( "#subject option:selected" ).text());
         getTopics({{$subject}});
     @endif
     }
@@ -299,6 +333,8 @@
     @if($topic_id)
         $("#topic").val("{{$topic_id}}");
         $("#topic_search").val("{{$topic_id}}");
+        $("#header-topic").text($( "#topic option:selected" ).text());
+        $("#topicTitle").val($( "#topic option:selected" ).text());
     @endif
     }
     });
@@ -310,14 +346,28 @@
     param = param.replace(':topicId', $("#topic").val());
     var url = '{{route("dailyBook.index" , ":param")}}';
     url = url.replace(':param', param);
-    location.href= url;
+    location.href = url;
     }
 
-    function clearForm(){
-
+    function updateRemaining(topicId) {
+    $("div.spanner").addClass("show");
+    var url = '{{route("dailyBook.updateRemaining" , ":topicId")}}';
+    url = url.replace(':topicId', topicId);
+    $.ajax({
+    url: url,
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json; charset=utf-8',
+    success: function (res) {
+    if(res > 0){
+    alertify.success('بروزرسانی با موفقیت انجام شد!');
+    $("#btnSearch").click();
+    }else{
+    alertify.warning('اطلاعاتی برای بروزرسانی وجود ندارد!');
     }
-
-
-
-    {{--</script>--}}
+    $("div.spanner").removeClass("show");
+    }
+    });
+    }
+    {{--    </script>--}}
 @endsection
