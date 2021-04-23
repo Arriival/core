@@ -1,0 +1,41 @@
+@page {
+
+}
+
+@media print {
+
+    html, body {
+        width: 210mm;
+        height: 297mm;
+
+    }
+
+
+
+    .header {
+        border: 1px solid black !important;
+        border-radius: 8px !important;
+    }
+
+    .logo {
+        margin: 5px;
+    }
+
+    .details {
+        position: absolute !important;
+        right: 50px !important;
+        top: 45px !important;
+    }
+
+
+    .reportDate {
+        position: absolute;
+        left: 100px;
+        top: 45px;
+    }
+
+}
+
+
+
+

@@ -30,29 +30,52 @@
     <link href="{{ asset('/dist/css/skins/square/_all.css') }}" rel="stylesheet">
     <link href="{{ asset('/dist/css/jquery-confirm.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/dist/css/themes/default.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/dist/css/reportStyle.css') }}" media="screen"/>
     <style>
-
-        @media print {
-
-            html, body {
-                height: 100% !important;
-                margin: 20px !important;
-                padding: 10px !important;
-                overflow: hidden !important;
-                page-break-after: always !important;
-            }
-
+        .header {
+            border: 1px solid black !important;
+            border-radius: 8px !important;
         }
+
+        .logo {
+            margin: 5px;
+        }
+
+        .details {
+            position: absolute !important;
+            right: 50px !important;
+            top: 45px !important;
+        }
+
+        .reportDate {
+            position: absolute;
+            left: 100px;
+            top: 45px;
+        }
+
 
     </style>
 </head>
 
 <body>
 <div class="card">
-
     <div class="card-header">
-        <h3 class="card-title">دفتر روزنامه
-        </h3>
+        <!--       -->
+        <div class="header">
+            <div class="details">
+                <span>{{$request->subjectTitle}}</span>
+                -
+                <span>{{$request->topicTitle}}</span>
+            </div>
+            <div class="reportDate">
+                <sapn>تاریخ گزارش :</sapn>
+                <span class="persianNumber rtl"> {{\Hekmatinasser\Verta\Verta::now()->format('Y/n/j H:i')}}</span>
+            </div>
+            <div class="logo">
+                <img src="{{asset('/dist/img/logo.png')}}" class="rounded mx-auto d-block" alt="..." width="80px">
+            </div>
+
+        </div>
     </div>
     <div class="card-body">
         <div class="row mt-3">
@@ -67,8 +90,11 @@
                     </th>
                     <th>بدهکار/بستانکار
                     </th>
-                    <th>مانده
+                    <!--                    <th>مانده گزارش
+                                        </th>-->
+                    <th>مانده تقویمی
                     </th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -102,20 +128,33 @@
                                 </span>
                             @endif
                         </td>
-                        <td class="ltr">
+
+                    <!--                        <td class="ltr">
                             @php
-                                $remaining = $remaining + $item->amount;
-                            @endphp
-                            @if($remaining < 0)
+                        $remaining = $remaining + $item->amount;
+                    @endphp
+                    @if($remaining < 0)
+                        <span class="text-danger persianNumber">
+{{number_format($remaining)}}
+                            </span>
+@else
+                        <span class="persianNumber">
+{{number_format($remaining)}}
+                            </span>
+@endif
+                        </td>-->
+                        <td class="ltr">
+                            @if($item->remaining < 0)
                                 <span class="text-danger persianNumber">
-                                     {{number_format($remaining)}}
+                                     {{number_format($item->remaining)}}
                                 </span>
                             @else
                                 <span class="persianNumber">
-                                    {{number_format($remaining)}}
+                                    {{number_format($item->remaining)}}
                                 </span>
                             @endif
                         </td>
+
                     </tr>
                 @endforeach
                 </tbody>

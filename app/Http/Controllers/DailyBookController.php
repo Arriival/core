@@ -15,7 +15,7 @@ class DailyBookController extends Controller
     public function index(Request $request)
     {
         $query = $this->query($request);
-        $result = $query->orderBy('date', 'desc')->paginate(20);
+        $result = $query->orderBy('date', 'desc')->orderBy('id', 'desc')->paginate(20);
         $totalRemaining = $this->calculateRemaining($request->topic);
         $data = ['result' => $result, 'subject' => $request->subject, 'topic_id' => $request->topic, 'totalRemaining' => $totalRemaining, 'request' => $request];
         return view('dailyBook.Grid', $data);
@@ -39,8 +39,15 @@ class DailyBookController extends Controller
     public function store(Request $request)
     {
         $this->validator($request);
+        $lastRemaining = $this->getLastRemaining($request->topic_id);
+        if ($lastRemaining == null) {
+            $request['remaining'] = $request['amount'];
+        } else {
+            $request['remaining'] = $request['amount'] + $lastRemaining;
+        }
         $request['user_id'] = Auth::user()->id;
         $request['amount'] = $request['amount'] * $request['amountType'];
+
         DailyBook::create($this->uploadFile($request, null)->all());
         $request['subject'] = $request->subject;
         $request['topic'] = $request->topic_id;
@@ -106,7 +113,7 @@ class DailyBookController extends Controller
     {
 
         $query = $this->query($request);
-        $result = $query->orderBy('date', 'desc')->get();
+        $result = $query->orderBy('date', 'desc')->orderBy('id', 'desc')->get();
         $data = ['result' => $result, 'subject' => $request->subject, 'topic_id' => $request->topic, 'request' => $request];
         return view('dailyBook.Report', $data);
 
@@ -174,9 +181,29 @@ class DailyBookController extends Controller
         if ($request->has('documentNumber') && !is_null($request->documentNumber)) {
             $query->where('document_number', $request->documentNumber);
         }
+        if ($request->has('description') && !is_null($request->description)) {
+            $query->where('description','like',  '%' . $request->description . '%');
+        }
         $query->where('topic_id', $request->topic);
 
         $query->where('user_id', Auth::user()->id);
         return $query;
+    }
+
+    public function getLastRemaining($topicId)
+    {
+        $remaning = DailyBook::select('remaining')->where('user_id', Auth::user()->id)->where('topic_id', $topicId)->orderBy('date', 'desc')->orderBy('id', 'desc')->first();
+        return $remaning['remaining'];
+    }
+
+    public function updateRemaining($topicId)
+    {
+        $res = DB::select('call updateRemainingValue(?)', array($topicId));
+        $count = $res[0]->count;
+        if ($count > 0){
+            return response($count, 200);
+        }else{
+            return response('-1', 200);
+        }
     }
 }
